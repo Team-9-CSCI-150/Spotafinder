@@ -9,7 +9,7 @@ export default function LibaryScene() {
             <Button 
                 title = "Library"
                 color = "blue"
-                onPress = {() => NavigatorService.navigation('Home', {Home: 'HomeScene'})}
+                onPress = {() => NavigatorService.navigation('Home', {Home: 'Home'})}
             />
         </View>
     );

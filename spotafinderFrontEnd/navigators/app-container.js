@@ -1,16 +1,18 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {createAppContainer, createSwitchNavigator} from 'react-navigation'
-import HomeScene from '../scenes/home-scene';
-import LibraryScene from '../scenes/library-secne';
+import Home from '../scenes/home-scene';
+import Library from '../scenes/library-secne';
+import Login from '../scenes/login-scene';
 
 const SwitchNavigator = createSwitchNavigator(
     {
-        Home: HomeScene,
-        Library: LibraryScene,
+        Login: Login,
+        Home: Home,
+        Library: Library,
     },
     {
-        initialRouteName: 'Home',
+        initialRouteName: 'Login',
     },
 );
 
