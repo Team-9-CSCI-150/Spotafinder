@@ -3,23 +3,24 @@ import { View, TextInput, StyleSheet, Dimensions, Button } from 'react-native';
 import NavigatorService from '../navigator-service';
 
 export default function LoginScene() {
-    const [user, userInput] = useState("");
-    const [password, passwordInput] = useState("");
+    const [user, userInput] = useState('');
+    const [password, passwordInput] = useState('');
 
     return (
         <View style = {styles.container}>
             <TextInput
                 style = {styles.box}
-                placeholder = "Type your username!"
+                placeholder = 'Type your username!'
                 onChangeText = {user => userInput(user)}
             />
             <TextInput
                 style = {styles.box}
-                placeholder = "Type your password!"
+                placeholder = 'Type your password!'
                 onChangeText = {password => passwordInput(password)}
             />
             <Button
-                title = "Login" 
+                title = 'Login' 
+                onPress = {() => NavigatorService.navigation('Home', {Home: 'Home'})}
             />
         </View>
     );
