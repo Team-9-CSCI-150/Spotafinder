@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { View, TextInput, StyleSheet } from 'react-native';
+import { View, TextInput, StyleSheet, Dimensions, Button } from 'react-native';
 import NavigatorService from '../navigator-service';
 
 export default function LoginScene() {
@@ -7,15 +7,19 @@ export default function LoginScene() {
     const [password, passwordInput] = useState("");
 
     return (
-        <View style={styles.container}>
-             <TextInput 
-                style={styles.box}
+        <View style = {styles.container}>
+            <TextInput
+                style = {styles.box}
                 placeholder = "Type your username!"
                 onChangeText = {user => userInput(user)}
             />
             <TextInput
+                style = {styles.box}
                 placeholder = "Type your password!"
                 onChangeText = {password => passwordInput(password)}
+            />
+            <Button
+                title = "Login" 
             />
         </View>
     );
@@ -23,10 +27,15 @@ export default function LoginScene() {
 
 const styles = StyleSheet.create ({
     box: {
-        marginTop: '100%',
-        marginBottom: '30%',
+        backgroundColor: 'white',
+        width: Dimensions.get('window').width / 2, 
+        height: 40,
+        marginBottom: 20,
     },
     container: {
+        backgroundColor: 'red',
+        width: Dimensions.get('window').width,
+        height: Dimensions.get('window').height,
         alignItems: 'center',
         justifyContent: 'center',
     }
