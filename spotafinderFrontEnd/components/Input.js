@@ -1,4 +1,4 @@
-import React from 'react';
+/*import React from 'react';
 import { View, StyleSheet, Text, TextInput } from 'react-native';
 
 const Input = ({ label, value, onChangeText,placeholder, secureTextEntry }) => {
@@ -19,29 +19,30 @@ const Input = ({ label, value, onChangeText,placeholder, secureTextEntry }) => {
 }
 
 const styles = StyleSheet.create({
-container:{
-    marginTop: 10,
-    width: '100%',
+container: {
+    marginTop: 15,
+    width: '100%' ,
     borderColor: '#eee',
-    borderButtomWidth:2,
+    borderBottomWidth:2,
 },
-label:{
+label: {
     padding: 5,
     paddingBottom: 0,
     color: '#333',
-    fondWeight: '700',
-    width: '100%',
+    fontWeight: '700',
+    width: '100%' ,
 },
-input:{
+input: {
     paddingRight: 5,
     paddingLeft: 5,
     paddingBottom: 2,
     color: '#333',
     fontSize: 18,
     
-    width: '%100',
+    width: '100%' ,
 
 }
 })
 
 export { Input };
+*/
