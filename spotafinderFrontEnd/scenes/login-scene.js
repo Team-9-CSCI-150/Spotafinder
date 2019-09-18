@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { View, TextInput, StyleSheet, Dimensions, Button } from 'react-native';
 import NavigatorService from '../navigator-service';
+import { AuthSession } from 'expo';
 
 export default function LoginScene() {
     const [user, userInput] = useState('');
@@ -8,33 +9,34 @@ export default function LoginScene() {
 
     return (
         <View style = {styles.container}>
-            <TextInput
-                style = {styles.box}
-                placeholder = 'Type your username!'
-                onChangeText = {user => userInput(user)}
-            />
-            <TextInput
-                style = {styles.box}
-                placeholder = 'Type your password!'
-                onChangeText = {password => passwordInput(password)}
-            />
-            <Button
-                title = 'Login'
-                onPress = {() => NavigatorService.navigation('Home', {Home: 'Home'})}
-            />
+                <TextInput
+                    style = {styles.box}
+                    placeholder = 'Type your username!'
+                    onChangeText = {user => userInput(user)}
+                />
+                <TextInput
+                    style = {styles.box}
+                    placeholder = 'Type your password!'
+                    onChangeText = {password => passwordInput(password)}
+                />
+                <Button
+                    title = 'Login'
+                    onPress = {() => NavigatorService.navigation('Home', {Home: 'Home'})}
+                />
         </View>
     );
 }
 
 const styles = StyleSheet.create ({
     box: {
-        backgroundColor: 'white',
-        width: Dimensions.get('window').width / 2, 
-        height: 40,
-        marginBottom: 20,
+        backgroundColor: 'pink',
+        width: Dimensions.get('window').width * 0.5, 
+        height: Dimensions.get('window').height * 0.05,
+        borderRadius: 15,
+        marginBottom: 10,
+        textAlign: 'center',
     },
     container: {
-        backgroundColor: 'red',
         width: Dimensions.get('window').width,
         height: Dimensions.get('window').height,
         alignItems: 'center',

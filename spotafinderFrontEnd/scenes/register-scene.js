@@ -29,7 +29,7 @@ export default function Register() {
             />
             <Button
                 title = 'Register Done!'
-                onPress = {() => { NavigatorService.navigation('Home', {Home: 'Home'}); createAccount(newUser, newPassword) }}
+                onPress = {() => {NavigatorService.navigation('Home', {Home: 'Home'}); createAccount(newUser, newPassword)}}
             />
         </View>
     );
