@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { View, TextInput, StyleSheet, Dimensions, Button } from 'react-native';
-import NavigatorService from '../navigator-service';
+import NavigatorService from '../navigators/navigator-service';
 import { AuthSession } from 'expo';
 
 export default function Login() {

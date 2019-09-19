@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { View, TextInput, StyleSheet, Dimensions, Button } from 'react-native';
-import NavigatorService from '../navigator-service';
+import { View, 
+         TextInput, 
+         StyleSheet, 
+         Dimensions, 
+         Button } from 'react-native';
+import Style from '../style';
+import NavigatorService from '../navigators/navigator-service';
 import FireBase from '../firebase';
 
 async function createAccount(user, password) {
@@ -11,21 +16,35 @@ async function createAccount(user, password) {
     }
 }
 
+
+
 export default function Register() {
+    const [userName, inputName] = useState('');
     const [newUser, inputUser] = useState('');
     const [newPassword, inputPassword] = useState('');
+    const [confirmPassowrd, inputConfirmPassword] = useState('');
 
     return(
-        <View style = {styles.container}>
+        <View style = {Style.center}>
             <TextInput
                 style = {styles.box}
-                placeholder = 'Create User!'
+                placeholder = 'Input Name'
+                onChangeText = {userName => inputName(userName)}
+            />
+            <TextInput
+                style = {styles.box}
+                placeholder = 'Create Users!'
                 onChangeText = {newUser => inputUser(newUser)}
             />
             <TextInput
                 style = {styles.box}
                 placeholder = 'Create Password'
                 onChangeText = {newPassword => inputPassword(newPassword)}
+            />
+            <TextInput
+                style = {styles.box}
+                placeholder = 'Confrim Password'
+                onChangeText = {confirmPassowrd => inputConfirmPassword(confirmPassowrd)}
             />
             <Button
                 title = 'Register Done!'
@@ -37,7 +56,7 @@ export default function Register() {
 
 const styles = StyleSheet.create ({
     box: {
-        backgroundColor: 'white',
+        backgroundColor: 'pink',
         width: Dimensions.get('window').width / 2, 
         height: 40,
         marginBottom: 20,

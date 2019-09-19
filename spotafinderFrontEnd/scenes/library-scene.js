@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text, View, Button} from 'react-native';
-import NavigatorService from '../navigator-service';
+import NavigatorService from '../navigators/navigator-service';
 
 export default function Libary() {
 
