@@ -2,7 +2,7 @@ import React from 'react';
 import {Text, View, Button} from 'react-native';
 import NavigatorService from '../navigator-service';
 
-export default function LibaryScene() {
+export default function Libary() {
 
     return (
         <View> 

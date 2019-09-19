@@ -3,7 +3,7 @@ import { View, TextInput, StyleSheet, Dimensions, Button } from 'react-native';
 import NavigatorService from '../navigator-service';
 import { AuthSession } from 'expo';
 
-export default function LoginScene() {
+export default function Login() {
     const [user, userInput] = useState('');
     const [password, passwordInput] = useState('');
 
