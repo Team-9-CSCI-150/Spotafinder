@@ -1,14 +1,7 @@
 import { StyleSheet, Dimensions } from 'react-native';
 
-let window_width  = Dimensions.get('window').width;
-let window_height = Dimensions.get('window').height;
+export let Window_Width  = Dimensions.get('window').width;
+export let Window_Height = Dimensions.get('window').height;
 
+export let Icon = require('./images/icon.png');
 
-export default styles = StyleSheet.create({
-    center: {
-        width: window_width,
-        height: window_height,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-});
