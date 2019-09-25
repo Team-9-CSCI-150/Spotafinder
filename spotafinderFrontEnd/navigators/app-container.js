@@ -2,6 +2,8 @@ import { StyleSheet, Text, View } from 'react-native';
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 
 import React    from 'react';
+import Welcome  from '../scenes/welcome-scene';
+//import Splash from '../scenes/splash-scene';
 import Home     from '../scenes/home-scene';
 import Library  from '../scenes/library-scene';
 import Login    from '../scenes/login-scene';
@@ -13,9 +15,11 @@ const SwitchNavigator = createSwitchNavigator(
         Login: Login,
         Home: Home,
         Library: Library,
+        //Splash,Splash
+        Welcome: Welcome,  
     },
     {
-        initialRouteName: 'Register',
+        initialRouteName: 'Welcome',
     },
 );
 
