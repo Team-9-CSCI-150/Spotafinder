@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View }       from 'react-native';
 import { Window_Width, Window_Height }  from './style';
 
+//import IntroSlider from 'react-native-app-walkthrough';
 import React            from 'react';
 import AppContainer     from './navigators/app-container'
 import NavigatorService from './navigators/navigator-service';

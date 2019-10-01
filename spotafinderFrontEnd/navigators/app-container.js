@@ -19,7 +19,7 @@ const SwitchNavigator = createSwitchNavigator(
         Welcome: Welcome,  
     },
     {
-        initialRouteName: 'Welcome',
+        initialRouteName: 'Register',
     },
 );
 

@@ -14,6 +14,13 @@ export default function Libary() {
                 onPress = {() => NavigatorService.navigation('Home', {Home: 'Home'})}
                 
             />
+            <Button 
+                title = "Welcome"
+                color = "green"
+                height= "10px"
+                onPress = {() => NavigatorService.navigation('Welcome', {Welcome: 'Welcome'})}
+                
+            />
 
         <View style={styles.libraryFloors}>
 
