@@ -8,9 +8,8 @@ import Service      from './src/navigator-service';
 
 export default function App() {
   return (
-    <View>
+    <View style = {style.size}>
          <AppContainer
-            style = {style.size}
             refs  = {(navigatorRef) => {
                 Service.setTopLevelNavigator(navigatorRef);
             }}
@@ -23,7 +22,7 @@ const style = StyleSheet.create({
     size: {
         width: Window_Width, 
         height: Window_Height,
-        justifyContent: "center",
+        justifyContent: 'center',
         alignItems: 'center',
     },
 });
