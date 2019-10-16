@@ -4,7 +4,7 @@ import { Window_Width, Window_Height } from './src/constant'
 import AppContainer from './src/app-container';
 import React        from 'react';
 import Service      from './src/navigator-service';
-
+import Entrance    from './src/screens/entrance'
 
 export default function App() {
   return (
