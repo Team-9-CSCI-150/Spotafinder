@@ -32,6 +32,14 @@ export default function Libary() {
                 
             />
 
+<Button 
+                title = "NEW"
+                color = "red"
+                height= "10px"
+                onPress = {() => NavigatorService.navigation('Menu', {Menu: 'Menu'})}
+                
+            />
+
         <View style={styles.libraryFloors}>
 
    

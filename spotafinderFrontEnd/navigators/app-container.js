@@ -9,6 +9,7 @@ import Library  from '../scenes/library-scene';
 import Register from '../scenes/register-scene';
 import newLogin from '../scenes/new-login';
 
+
 const SwitchNavigator = createSwitchNavigator(
     {
         Register: Register,
@@ -17,6 +18,7 @@ const SwitchNavigator = createSwitchNavigator(
         //Splash,Splash
         Welcome: Welcome,  
         newLogin: newLogin,
+        
     },
     {
         initialRouteName: 'Welcome',
