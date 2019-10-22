@@ -28,6 +28,10 @@ export default function Register() {
                 source = {Logo}
                 resizeMode = 'contain'
             />
+            {/*Registration Title*/}
+            <Text style = {styles.registration_txt}>
+                Registration
+            </Text>
             <View style = {styles.text_container}>
                 {/*WELCOME
                 <Text>
@@ -50,7 +54,7 @@ export default function Register() {
                 {/*EMAIL; incorporate error if invalid email*/}
                 <TextInput
                     style = {styles.user_content}
-                    placeholder = 'Username'
+                    placeholder = 'Organization Email'
                     onChangeText = {newUser => inputUser(newUser)}
                     textAlign = 'center'
                 />
@@ -86,8 +90,12 @@ const styles = StyleSheet.create({
         width: Window_Width,
         height: Window_Height,
         alignItems: 'center',
-        //backgroundColor: '#2E3D4E',
-        backgroundColor: '#d1d1d1',
+        backgroundColor: 'white',
+        //backgroundColor: '#d1d1d1',
+    },
+
+    registration_txt: {
+        fontSize: 20
     },
 
     text_container: {
@@ -124,5 +132,6 @@ const styles = StyleSheet.create({
         //paddingTop: 10,
         borderRadius: 15,
         backgroundColor: '#BCF4F5'
+        //backgroundColor: 'white'
     }
 });
