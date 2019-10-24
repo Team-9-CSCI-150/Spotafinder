@@ -1,3 +1,5 @@
+#updates database every 10 seconds with random data
+
 import pyrebase
 from random import seed
 from random import randint
@@ -27,7 +29,7 @@ for _ in range(10):
     Ldata = {"Library/floors/1":{"occupancy": lfloor1},
         "Library/floors/2":{"occupancy": lfloor2}}
     Ldb.update(Ldata)
-    time.sleep(30)
+    time.sleep(10)
     
 
 
