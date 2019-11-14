@@ -1,110 +1,51 @@
+import React from 'react';
+import { View, Text, Image, Button,StyleSheet,ScrollView } from 'react-native';
 
-import React, { Component } from 'react';
-import NavigatorService from '../navigators/navigator-service';
-import {
-  StyleSheet,
-  Text,
-  View,
-  TextInput,
-  Button,
-  TouchableHighlight,
-  Image,
-  Alert
-} from 'react-native';
 
-export default class newLogin extends Component {
-
-  constructor(props) {
-    super(props);
-    state = {
-      email   : '',
-      password: '',
-    }
-  }
-
-  
-
-  render() {
-    return (
-      <View style={styles.container}>
-        <View style={styles.inputContainer}>
-          <Image style={styles.inputIcon} source={{uri: 'https://png.icons8.com/message/ultraviolet/50/3498db'}}/>
-          <TextInput style={styles.inputs}
-              placeholder="Email"
-              keyboardType="email-address"
-              underlineColorAndroid='transparent'
-              onChangeText={(email) => this.setState({email})}/>
-        </View>
-        
-        <View style={styles.inputContainer}>
-          <Image style={styles.inputIcon} source={{uri: 'https://png.icons8.com/key-2/ultraviolet/50/3498db'}}/>
-          <TextInput style={styles.inputs}
-              placeholder="Password"
-              secureTextEntry={true}
-              underlineColorAndroid='transparent'
-              onChangeText={(password) => this.setState({password})}/>
-        </View>
-
-        <TouchableHighlight style={[styles.buttonContainer, styles.loginButton]} onPress={() => NavigatorService.navigation('Library', {Library: 'Library'})}>
-          <Text style={styles.loginText}>Login</Text>
-        </TouchableHighlight>
-
-        <TouchableHighlight style={styles.buttonContainer} onPress={() => NavigatorService.navigation('createAccount', {createAccount: 'createAccount'})}>
-            <Text>Forgot your password?</Text>
-        </TouchableHighlight>
-
-        <TouchableHighlight style={styles.buttonContainer} onPress = {() => NavigatorService.navigation('Register', {Register: 'Register'})}>
-            <Text>Register</Text>
-        </TouchableHighlight>
-      </View>
-    );
-  }
+export default class menu extends React.Component {
+   render() {
+   return (
+     <View style={styles.container}>
+       <View style={styles.header}>
+         <Text style={styles.headText}>Header</Text>
+       </View>
+       <ScrollView style={styles.content}>
+         <Button title="Awesome Button" />
+         </ScrollView>
+       <View style={styles.footer}>
+         <Text style={styles.footerText}>I am the footer</Text>
+       </View>
+     </View>
+   );
+ }
 }
-
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#DCDCDC',
+    backgroundColor: "#fff",
+    flex: 1
   },
-  inputContainer: {
-      borderBottomColor: '#F5FCFF',
-      backgroundColor: '#FFFFFF',
-      borderRadius:30,
-      borderBottomWidth: 1,
-      width:250,
-      height:45,
-      marginBottom:20,
-      flexDirection: 'row',
-      alignItems:'center'
+  header: {
+    backgroundColor: "#c0392b",
+    height: 60,
+    paddingTop: 10,
+    
+
   },
-  inputs:{
-      height:45,
-      marginLeft:16,
-      borderBottomColor: '#FFFFFF',
-      flex:1,
+  headerText: {
+    color: "#fff",
+    fontSize: 18,
+    fontWeight: "600"
   },
-  inputIcon:{
-    width:30,
-    height:30,
-    marginLeft:15,
-    justifyContent: 'center'
+  content: {
+    backgroundColor: "white",
+    padding: 20,
   },
-  buttonContainer: {
-    height:45,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom:20,
-    width:250,
-    borderRadius:30,
+  footer: {
+    backgroundColor: "#c0392b",
+    height: 70
   },
-  loginButton: {
-    backgroundColor: "#00b5ec",
-  },
-  loginText: {
-    color: 'white',
+  footerText: {
+    color: "#fff",
+    fontSize: 16
   }
-});
- 
+ });

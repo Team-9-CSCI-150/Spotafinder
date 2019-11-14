@@ -8,7 +8,7 @@ import Home     from '../scenes/home-scene';
 import Library  from '../scenes/library-scene';
 import Register from '../scenes/register-scene';
 import newLogin from '../scenes/new-login';
-
+import menu     from '../scenes/Menu';
 
 const SwitchNavigator = createSwitchNavigator(
     {
@@ -18,10 +18,11 @@ const SwitchNavigator = createSwitchNavigator(
         //Splash,Splash
         Welcome: Welcome,  
         newLogin: newLogin,
+        menu: menu,
         
     },
     {
-        initialRouteName: 'Welcome',
+        initialRouteName: 'menu', // use Welcome
     },
 );
 

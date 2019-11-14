@@ -33,10 +33,10 @@ export default function Libary() {
             />
 
 <Button 
-                title = "NEW"
+                title = "Menu"
                 color = "red"
                 height= "10px"
-                onPress = {() => NavigatorService.navigation('Menu', {Menu: 'Menu'})}
+                onPress = {() => NavigatorService.navigation('menu', {menu: 'menu'})}
                 
             />
 
