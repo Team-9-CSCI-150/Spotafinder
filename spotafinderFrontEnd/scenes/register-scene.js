@@ -33,10 +33,6 @@ export default function Register() {
                 Registration
             </Text>
             <View style = {styles.text_container}>
-                {/*WELCOME
-                <Text>
-                    Welcome, Please enter you information down below
-                </Text>*/}
                 {/*FIRST NAME*/}
                 <TextInput
                     style = {styles.user_content}
