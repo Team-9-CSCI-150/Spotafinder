@@ -29,9 +29,6 @@ export default function Map(){
                     textAlign = 'center'
                 />
             </View>
-            {/*Second Container; Buildings in this container
-            <ScrollView contentContainerStyle = {styles.second_container}>
-            */}
             <View style = {{alignItems: 'center'}}> 
                 <View style = {styles.building_cont}>
                     <Text>
@@ -60,23 +57,20 @@ export default function Map(){
                 </View>
                 <View style = {styles.building_cont}>
                     <Text>
-                        McKee Fisk
+                        Science 1
                     </Text>
                 </View>
                 <View style = {styles.building_cont}>
                     <Text>
-                        McKee Fisk
+                        Science 2
                     </Text>
                 </View>
                 <View style = {styles.building_cont}>
                     <Text>
-                        McKee Fisk
+                        Food Court
                     </Text>
                 </View>
             </View>
-            {/* 
-            </ScrollView>
-            */}
         </ScrollView>
     );
 }
@@ -110,25 +104,30 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between'
     },
 
+    //Back Button
     back_button: {
-        width: 50,
+        width: 70,
         height: Window_Height * .05,
-        //borderRadius: 15,
+        borderRadius: 15,
         backgroundColor: 'pink',
-        textAlign: 'center',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+
+    back_text: {
+        fontSize: 10,
+        textDecorationLine: 'underline',
     },
 
     //Search Bar
     search_bar: {
         width: Window_Width * 0.45,
         height: Window_Height * 0.05,
-        //marginTop: Window_Height * 0.005,
-        //marginBottom: Window_Height * 0.030,
-        //paddingTop: 10,
         borderRadius: 15,
         backgroundColor: 'pink'
-        //backgroundColor: 'white'
     },
+
+    /*
     //second container; NOT USING
     second_container: {
         backgroundColor: 'pink',
@@ -148,6 +147,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         overflow: 'scroll',
     },
+    */
 
     //Building Place Holder
     building_cont: {
@@ -156,9 +156,11 @@ const styles = StyleSheet.create({
         borderRadius: 15, 
         backgroundColor: 'pink',
         marginBottom: 25,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
 
-    /*
+    /*NOT USING
     room_container: {
         width: 300,
         height: 500,
