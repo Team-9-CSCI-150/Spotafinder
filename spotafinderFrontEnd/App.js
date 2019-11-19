@@ -19,11 +19,12 @@ export default function App() {
   );
 }
 
+
 const styles = StyleSheet.create({
     container: {
         width: Window_Width,
         height: Window_Height,
-        alignItems: 'center',
-        justifyContent: 'center',
+        //alignItems: 'center',
+        //justifyContent: 'center',
     }
 });
