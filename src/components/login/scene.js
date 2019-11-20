@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Styles from './login_style';
+import Styles from './style';
 //import NavigatorService from '../navigators/navigator-service';
 import {
     Text,
