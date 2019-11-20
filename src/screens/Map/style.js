@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { Window_Width, Window_Height} from '../../utils/constants';
 
 export default styles = StyleSheet.create({
     //container for screen

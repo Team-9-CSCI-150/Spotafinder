@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
+
 import AppIntroSlider from 'react-native-app-intro-slider';
-import NavigatorService from '../navigators/navigator-service';
+import Router from '../../navigator/router';
 
 export default class Welcome extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -15,12 +15,12 @@ export default class Welcome extends Component {
   }
 
   onDone = () => {
-    this.setState(() => NavigatorService.navigation('Register', {Register: 'Register'}));
+    this.setState(() => Router.navigation('Register', {Register: 'Register'}));
     ///this.setState(<Router component ={Home} title="Home" initial = {true} /> );
   };
 
   onSkip = () => {
-    this.setState(() => NavigatorService.navigation('newLogin', {newLogin: 'newLogin'}));
+    this.setState(() => Router.navigation('newLogin', {newLogin: 'newLogin'}));
   };
 
   /*onLogin = () => {
@@ -55,3 +55,44 @@ export default class Welcome extends Component {
     }
   }
 }
+
+const slides = [
+    {
+      key: 's1',
+      title: 'SpotaFinder',
+      text: 'An app that lets you monitor library congestion',
+      image: {
+        uri:
+          'https://imgur.com/7ClQj9M.png',
+      },
+      titleStyle: styles.title,
+      textStyle: styles.text,
+      imageStyle: styles.image,
+      backgroundColor: '#BCF4F5',
+    },
+    {
+      key: 's2',
+      title: ' How to use the app',
+      text: 'BLAHABLAHALBAHAABALAHABALAHA if you are ready to sign up hit the done button',
+      image: {
+        uri:
+          'https://imgur.com/BVQ79rh.png',
+      },
+      titleStyle: styles.title,
+      textStyle: styles.text,
+      imageStyle: styles.image,
+      backgroundColor: '#B4EBCA',
+    },
+    {
+      key: 's3',
+      title: 'Just Dating ',
+      text: 'let hangout and enjoy together with special place and special deal',
+      image: {
+        uri: 'https://imgur.com/RPI8wie.png',
+      },
+      titleStyle: styles.title,
+      textStyle: styles.text,
+      imageStyle: styles.image,
+      backgroundColor: '#D9F2B4',
+    } 
+  ];
