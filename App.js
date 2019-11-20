@@ -7,7 +7,7 @@ import AppContainer from './src/navigator/container';
 
 export default function App() {
   return (
-    <View style = {styles.container}>
+    <View>
         <AppContainer
             ref = {(navigatorRef) => {
                 Router.setTopLevelNavigator(navigatorRef);
@@ -16,13 +16,3 @@ export default function App() {
     </View>
   );
 }
-
-
-const styles = StyleSheet.create({
-    container: {
-        width: Window_Width,
-        height: Window_Height,
-        //alignItems: 'center',
-        //justifyContent: 'center',
-    }
-});
