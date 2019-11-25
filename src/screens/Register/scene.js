@@ -11,21 +11,30 @@ import Router from '../../navigator/router';
 import FireBase from '../../configs/firebase';
 import Style from './style';
 
-function sign_in(firstName, lastName, email, password) {
-    Firebase.auth().createUserWithEmailAndPassword(email, password)
+var Icon = require('../../assets/logo_red.png');
+
+function sign_up(firstName, lastName, email, password) { 
+    
+    FireBase.auth().createUserWithEmailAndPassword(email, password)
     .then(() => {
-        var db = Firebase.firestore()
-        .collection('users')
-        .add({
-            name: firstName + " " + lastName,
+        var uID = FireBase.auth().currentUser.uid;
+        FireBase.firestore().collection('users').doc(uID)
+        .set({
+            name: firstName + lastName,
             email: email,
             password: password
-        }); 
-        Router.navigation('Home', Home);
+        })
+        .then(() => {
+            alert("Complete!");
+            Router.navigation('Home', {Home: 'Home'});
+        })
+        .catch((error) => {
+            alert(error.message);
+        })
     })
     .catch((error) => {
         alert(error.message);
-    });
+    })
 }
 
 export default function Register() {
@@ -39,7 +48,7 @@ export default function Register() {
             {/*LOGO*/}
             <Image
                 style = {Style.icon_content}
-                source = {Logo}
+                source = {Icon}
                 resizeMode = 'contain'
             />
             {/*Registration Title*/}
@@ -88,7 +97,7 @@ export default function Register() {
                 <Button
                     //style = {styles.confirm_button}
                     title = 'Sign Up'
-                    onPress = {() => {Router.navigation('Home', {Home: 'Home'}); createAccount(newUser, newPassword)}}
+                    onPress = {() => {sign_up(userName, userName, newUser, newPassword)}}
                 />
             </View>
         </View>

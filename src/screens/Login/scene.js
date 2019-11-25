@@ -12,8 +12,14 @@ import Styles from './style';
 import Router from '../../navigator/router';
 import Firebase from '../../configs/firebase';
 
-function sign_in(firstName, lastName, email, password) {
-   
+function sign_in(email, password) {
+   Firebase.auth().signInWithEmailAndPassword(email, password)
+    .then(() =>{
+        Router.navigation('Home', {Home: 'Home'});
+    })
+    .catch(function(error) {
+        alert(error.message);
+    });
 }
 
 export default function Login() {
@@ -24,7 +30,7 @@ export default function Login() {
     const [isPassword, validPassword] = useState(false);
 
     const isValid = () => {
-        (isEmail && isPassword) ? Router.navigation('Area', Area) : alert('Invalid User');
+        (isEmail && isPassword) ? Router.navigation('Area', {Area: 'Area'}) : alert('Invalid User');
     }
     
     return (
@@ -55,7 +61,7 @@ export default function Login() {
                 />
             </View>
 
-            <TouchableHighlight style={[Styles.buttonContainer, Styles.loginButton]} onPress={() => { isValid() }}>
+            <TouchableHighlight style={[Styles.buttonContainer, Styles.loginButton]} onPress={() => {sign_in(email, password)}}>
                 <Text style={Styles.loginText}>Login</Text>
             </TouchableHighlight>
 
