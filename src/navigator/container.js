@@ -1,13 +1,15 @@
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 
 import Login from '../screens/Login/scene';
-import Map from '../screens/Map/scene';
+import Register from '../screens/Register/scene';
+import Area from '../screens/Area/scene';
 
 export default createAppContainer(
     createSwitchNavigator(
         {
             'Login': {screen: Login},
-            'Map': {screen: Map},
+            'Register': {screen: Register},
+            'Area': {screen: Area},
         },
         {
             initialRouteName: 'Login',

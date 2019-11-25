@@ -11,13 +11,21 @@ import Router from '../../navigator/router';
 import FireBase from '../../configs/firebase';
 import Style from './style';
 
-async function createAccount(user, password) {
-    try {
-        await FireBase.auth().createUserWithEmailAndPassword(user, password);
-    } catch (error) {
-        alert("Hello! I am an alert box!!");
-
-    }
+function sign_in(firstName, lastName, email, password) {
+    Firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then(() => {
+        var db = Firebase.firestore()
+        .collection('users')
+        .add({
+            name: firstName + " " + lastName,
+            email: email,
+            password: password
+        }); 
+        Router.navigation('Home', Home);
+    })
+    .catch((error) => {
+        alert(error.message);
+    });
 }
 
 export default function Register() {

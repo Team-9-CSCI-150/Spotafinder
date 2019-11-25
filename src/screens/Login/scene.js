@@ -10,6 +10,11 @@ import {
 
 import Styles from './style';
 import Router from '../../navigator/router';
+import Firebase from '../../configs/firebase';
+
+function sign_in(firstName, lastName, email, password) {
+   
+}
 
 export default function Login() {
     const [email, inputEmail] = useState('');
@@ -19,7 +24,7 @@ export default function Login() {
     const [isPassword, validPassword] = useState(false);
 
     const isValid = () => {
-        (isEmail && isPassword) ? Router.navigation('Map', Map) : alert('Invalid User');
+        (isEmail && isPassword) ? Router.navigation('Area', Area) : alert('Invalid User');
     }
     
     return (

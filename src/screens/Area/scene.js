@@ -9,7 +9,7 @@ import {
 import React from 'react';
 import Style from './style';
 
-export default function Map(){
+export default function Area(){
     return(
         //Conatiner of page has flex 1 to fill the whole display
         <ScrollView style = {Style.container}>
