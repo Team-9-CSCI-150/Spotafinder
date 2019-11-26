@@ -32,13 +32,13 @@ export default function Libary() {
                 
             />
 
-<Button 
-                title = "Menu"
+{/* <Button 
+                title = "NEW"
                 color = "red"
                 height= "10px"
-                onPress = {() => NavigatorService.navigation('menu', {menu: 'menu'})}
+                onPress = {() => NavigatorService.navigation('newLogin', {newLogin: 'newLogin'})}
                 
-            />
+            /> */}
 
         <View style={styles.libraryFloors}>
 

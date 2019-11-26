@@ -1,51 +1,89 @@
 import React from 'react';
-import { View, Text, Image, Button,StyleSheet,ScrollView } from 'react-native';
+import {
+  SafeAreaView,
+  TouchableOpacity,
+  FlatList,
+  StyleSheet,
+  Text,
+} from 'react-native';
+import Constants from 'expo-constants';
 
+const DATA = [
+  {
+    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+    title: 'First Item',
+  },
+  {
+    id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+    title: 'Second Item',
+  },
+  {
+    id: '58694a0f-3da1-471f-bd96-145571e29d72',
+    title: 'Third Item',
+  },
+];
 
-export default class menu extends React.Component {
-   render() {
-   return (
-     <View style={styles.container}>
-       <View style={styles.header}>
-         <Text style={styles.headText}>Header</Text>
-       </View>
-       <ScrollView style={styles.content}>
-         <Button title="Awesome Button" />
-         </ScrollView>
-       <View style={styles.footer}>
-         <Text style={styles.footerText}>I am the footer</Text>
-       </View>
-     </View>
-   );
- }
+function Item({ id, title, selected, onSelect }) {
+  return (
+    <TouchableOpacity
+      onPress={() => onSelect(id)}
+      style={[
+        styles.item,
+        { backgroundColor: selected ? '#6e3b6e' : '#f9c2ff' },
+      ]}
+    >
+      <Text style={styles.title}>{title}</Text>
+    </TouchableOpacity>
+  );
 }
+
+
+export default function App() {
+  const [selected, setSelected] = React.useState(new Map());
+
+  const onSelect = React.useCallback(
+    id => {
+      const newSelected = new Map(selected);
+      newSelected.set(id, !selected.get(id));
+
+      setSelected(newSelected);
+    },
+    [selected],
+  );
+
+  return (
+    <SafeAreaView style={styles.container}>
+      <FlatList
+        data={DATA}
+        renderItem={({ item }) => (
+          <Item
+            id={item.id}
+            title={item.title}
+            selected={!!selected.get(item.id)}
+            onSelect={onSelect}
+          />
+        )}
+        keyExtractor={item => item.id}
+        extraData={selected}
+      />
+    </SafeAreaView>
+  );
+}
+
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#fff",
-    flex: 1
+    flex: 1,
+    marginTop: Constants.statusBarHeight,
   },
-  header: {
-    backgroundColor: "#c0392b",
-    height: 60,
+  item: {
+    backgroundColor: '#f9c2ff',
+    padding: 80,
+    marginVertical: 4,
+    marginHorizontal: 4,
+    marginVertical: 10,
     paddingTop: 10,
-    
-
   },
-  headerText: {
-    color: "#fff",
-    fontSize: 18,
-    fontWeight: "600"
+  title: {
+    fontSize: 32,
   },
-  content: {
-    backgroundColor: "white",
-    padding: 20,
-  },
-  footer: {
-    backgroundColor: "#c0392b",
-    height: 70
-  },
-  footerText: {
-    color: "#fff",
-    fontSize: 16
-  }
- });
+});
