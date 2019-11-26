@@ -14,7 +14,7 @@ LOG = plog.logging.getLogger(__name__)
 LOG.setLevel(plog.DEFAULT_LOG_LEVEL)
 
 
-class piCrack(object):
+class airsweep(object):
     """ Handshake Capture / Monitoring plugin for piClicker """
     def __init__(
             self,
