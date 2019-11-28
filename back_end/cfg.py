@@ -3,7 +3,7 @@
 # config file for the python environment
 import os
 import json
-# import plog
+import plog
 
 # normally this will be True, but False when testing / debugging as a non root user
 ROOT_ONLY = False

@@ -15,7 +15,7 @@ LOG.setLevel(plog.DEFAULT_LOG_LEVEL)
 
 
 class airsweep(object):
-    """ Handshake Capture / Monitoring plugin for piClicker """
+    """ Handshake Capture / Monitoring plugin for piClicker (airsweep) """
     def __init__(
             self,
             file_prefix='capture'
