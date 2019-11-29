@@ -10,12 +10,15 @@ export default function Home() {
             <View>
                 <TouchableOpacity
                     style = {Style.size}
-                    /*onPress = {() => {
+                    onPress = {() => {
                         Router.navigation('Friend', {Friend:'Friend'});
-                    }}*/
+                    }}
                 />
                 <TouchableOpacity
                     style = {Style.size}
+                    onPress = {() => {
+                        Router.navigation('Area', {Area:'Area'});
+                    }}
                 />
             </View>
             <View>

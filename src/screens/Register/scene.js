@@ -12,25 +12,25 @@ import FireBase from '../../configs/firebase';
 import Style from './style';
 
 var Icon = require('../../assets/logo_red.png');
+var File = '../../assets/refresh_small.png';
 
 function sign_up(firstName, lastName, email, password) { 
-    
     FireBase.auth().createUserWithEmailAndPassword(email, password)
     .then(() => {
         var uID = FireBase.auth().currentUser.uid;
-        FireBase.firestore().collection('users').doc(uID)
-        .set({
+        var db = FireBase.firestore();
+
+        db.collection('users').doc(uID).set({ //This might be a function
+            ID: uID,
             name: firstName + lastName,
             email: email,
-            password: password
-        })
-        .then(() => {
-            alert("Complete!");
-            Router.navigation('Home', {Home: 'Home'});
-        })
-        .catch((error) => {
+            password: password,
+        }).catch((error) => {
             alert(error.message);
         })
+
+        //FireBase.storage().ref().child(uID + '/images');
+        Router.navigation('Home', {Home: 'Home'});
     })
     .catch((error) => {
         alert(error.message);

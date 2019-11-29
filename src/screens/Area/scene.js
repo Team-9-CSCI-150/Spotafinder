@@ -11,7 +11,6 @@ import Style from './style';
 
 export default function Area(){
     return(
-        //Conatiner of page has flex 1 to fill the whole display
         <ScrollView style = {Style.container}>
             {/*Fresno State Title*/}
             <Text style = {Style.map_txt}>
@@ -22,6 +21,7 @@ export default function Area(){
                 {/*Back Button*/}
                 <Button
                     title = 'Back'
+                    onPress = {() => NavigatorService.navigation('Library', {Library: 'Library'})}
                 />
                 </View>
                 {/*Search Bar*/}
