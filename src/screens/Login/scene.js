@@ -1,77 +1,77 @@
 import React, { useState } from 'react';
+import { View } from 'react-native';
 import { emailFormat, passwordFormat } from '../../utils/constants';
-import { 
-    Text, 
-    View, 
-    TextInput, 
-    TouchableHighlight, 
-    Image 
-} from 'react-native';
 
+// Functioness components
+import Input from '../../components/Input';
+import Button from '../../components/Button';
+
+// Important data
 import Styles from './style';
 import Router from '../../navigator/router';
 import Firebase from '../../configs/firebase';
 
-function sign_in(email, password) {
-   Firebase.auth().signInWithEmailAndPassword(email, password)
-    .then(() =>{
-        Router.navigation('Home', {Home: 'Home'});
-    })
-    .catch(function(error) {
-        alert(error.message);
-    });
+function sign_in(valid, email, password) {
+    if (valid) {
+        Firebase.auth().signInWithEmailAndPassword(email, password)
+        .then(() =>{
+            Router.navigation('Home', {Home: 'Home'});
+        })
+        .catch(function(error) {
+            alert(error.message);
+        });
+    }
+    else {
+        alert('Invalid format!');
+    }
 }
 
 export default function Login() {
     const [email, inputEmail] = useState('');
     const [password, inputPassword] = useState('');
-
-    const [isEmail, validEmail] = useState(false);
-    const [isPassword, validPassword] = useState(false);
-
-    const isValid = () => {
-        (isEmail && isPassword) ? Router.navigation('Area', {Area: 'Area'}) : alert('Invalid User');
-    }
     
     return (
         <View style = {Styles.container}>
-            <View style = {Styles.inputContainer}>
-                <Image style = {Styles.inputIcon} source = {{uri: 'https://png.icons8.com/message/ultraviolet/50/3498db'}}/>
-                <TextInput style = {Styles.inputs}
-                    placeholder = "Enter Email"
-                    keyboardType = "email-address"
-                    underlineColorAndroid = 'transparent'
-                    onChangeText = {(currEmail) => {
-                        inputEmail(currEmail);
-                        validEmail(emailFormat.test(currEmail));
-                    }}
-                />
-            </View>
-        
-            <View style={Styles.inputContainer}>
-                <Image style={Styles.inputIcon} source={{uri: 'https://png.icons8.com/key-2/ultraviolet/50/3498db'}}/>
-                <TextInput style={Styles.inputs}
-                    placeholder = "Password"
-                    secureTextEntry = {true}
-                    underlineColorAndroid = 'transparent'
-                    onChangeText = {(currPassword) => {
-                        inputPassword(currPassword);
-                        validPassword(passwordFormat.test(currPassword));
-                    }}
-                />
-            </View>
-
-            <TouchableHighlight style={[Styles.buttonContainer, Styles.loginButton]} onPress={() => {sign_in(email, password)}}>
-                <Text style={Styles.loginText}>Login</Text>
-            </TouchableHighlight>
-
-            <TouchableHighlight style={Styles.buttonContainer} onPress={() => Router.navigation('createAccount', {createAccount: 'createAccount'})}>
-                <Text>Forgot your password?</Text>
-            </TouchableHighlight>
-
-            <TouchableHighlight style={Styles.buttonContainer} onPress = {() => Router.navigation('Register', {Register: 'Register'})}>
-                <Text>Register</Text>
-            </TouchableHighlight>
+            <Input
+                style      = {[Styles.inputContainer, Styles.inputIcon, Styles.inputs]}
+                image      = {{uri: 'https://png.icons8.com/message/ultraviolet/50/3498db'}}
+                textHolder = 'Enter Email'
+                isSecure   = {false}
+                keyboard   = 'email-address'
+                underline  = 'transparent'
+                input      = {inputEmail}
+            />
+            <Input
+                style      = {[Styles.inputContainer, Styles.inputIcon, Styles.inputs]}
+                image      = {{uri: 'https://png.icons8.com/message/ultraviolet/50/3498db'}}
+                textHolder = "Enter Password"
+                isSecure   = {true}
+                keyboard   = 'default'
+                underline  = 'transparent'
+                input      = {inputPassword}
+            />
+            
+            <Button
+                style   = {[Styles.buttonContainer, Styles.loginButton, Styles.loginText]}
+                text    = 'Login!'
+                onPress = {() => {
+                    sign_in(emailFormat.test(email) && passwordFormat.test(password), email, password);
+                }}
+            />
+            <Button
+                style   = {[Styles.buttonContainer, , ]}
+                text    = 'Forgot your password?'
+                onPress = {() => {
+                    Router.navigation('createAccount', {createAccount: 'createAccount'});
+                }}
+            />
+            <Button
+                style   = {[Styles.buttonContainer, , ]}
+                text    = 'Register!'
+                onPress = {() => {
+                    Router.navigation('Register', {Register: 'Register'});
+                }}
+            />
       </View>
     );
 }

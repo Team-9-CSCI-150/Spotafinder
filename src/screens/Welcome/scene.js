@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component } from './node_modules/react';
 import { View, Text } from 'react-native';
 
-import AppIntroSlider from 'react-native-app-intro-slider';
+import AppIntroSlider from './node_modules/react-native-app-intro-slider';
 import Router from '../../navigator/router';
 
 export default class Welcome extends Component {

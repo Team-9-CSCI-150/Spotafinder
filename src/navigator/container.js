@@ -1,11 +1,11 @@
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 
-import Login from '../screens/Login/scene';
-import Register from '../screens/Register/scene';
-import Home from '../screens/Home/scene';
-import Area from '../screens/Area/scene';
-import Friend from '../screens/Friend/scene';
-import User from '../screens/Friend/user';
+import Login from '../screens/login/scene';
+import Register from '../screens/register/scene';
+import Home from '../screens/home/scene';
+import Area from '../screens/area/scene';
+import Friend from '../screens/friend/scene';
+import User from '../screens/friend/user';
 
 export default createAppContainer(
     createSwitchNavigator(
