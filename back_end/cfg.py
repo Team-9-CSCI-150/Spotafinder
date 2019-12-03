@@ -9,7 +9,7 @@ import plog
 ROOT_ONLY = False
 
 # Config settings
-CONFIG_DIR = '/etc/piclicker'
+CONFIG_DIR = '/etc/spotafinder'
 CONFIG_SETTINGS_FILE = os.path.join(*[CONFIG_DIR, 'config.json'])
 CONFIG_DEFAULT_POLLING_INTERVAL = 2
 
