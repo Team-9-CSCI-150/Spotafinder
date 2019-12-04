@@ -58,7 +58,7 @@ const slides = [
     {
       key: 's1',
       title: 'SpotaFinder',
-      text: 'An app that lets you monitor library congestion',
+      text: 'An app that allows you to find free space to hang out, study or eat. If you are already registered press skip.',
       image: {
         uri:
           'https://imgur.com/7ClQj9M.png',
@@ -71,7 +71,7 @@ const slides = [
     {
       key: 's2',
       title: ' How to use the app',
-      text: 'BLAHABLAHALBAHAABALAHABALAHA if you are ready to sign up hit the done button',
+      text: 'Click on the map to see if your point of intrest is busy there or not',
       image: {
         uri:
           'https://imgur.com/BVQ79rh.png',
@@ -83,8 +83,8 @@ const slides = [
     },
     {
       key: 's3',
-      title: 'Just Dating ',
-      text: 'let hangout and enjoy together with special place and special deal',
+      title: 'Ready to Register',
+      text: 'Press done when you are ready to register',
       image: {
         uri: 'https://imgur.com/RPI8wie.png',
       },

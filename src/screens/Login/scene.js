@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from './node_modules/react';
 import { View } from 'react-native';
 import { emailFormat, passwordFormat } from '../../utils/constants';
 
@@ -14,8 +14,13 @@ import Firebase from '../../configs/firebase';
 function sign_in(valid, email, password) {
     if (valid) {
         Firebase.auth().signInWithEmailAndPassword(email, password)
-        .then(() =>{
-            Router.navigation('Home', {Home: 'Home'});
+        .then(() => {
+            if (Firebase.auth().currentUser.emailVerified) {
+                Router.navigation('Home', {Home: 'Home'});
+            }
+            else {
+                alert(email + ' has not been verified');
+            }
         })
         .catch(function(error) {
             alert(error.message);

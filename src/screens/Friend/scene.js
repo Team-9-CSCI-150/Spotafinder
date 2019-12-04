@@ -1,14 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from './node_modules/react';
 import { View, FlatList, TouchableOpacity, Text } from 'react-native';
 
 import Firebase from '../../configs/firebase';
 import Style from './style';
 import Router from '../../navigator/router';
 
-function Item(prop) {
+function Friends(prop) {
+    //When user click, it will move to the chat 
     return (
-        <TouchableOpacity style = {Style.size}>
-            <Text>{prop.title}</Text>
+        <TouchableOpacity style = {[Style.size, {alignItems: 'center'}]}>
+            <Text style = {Style.bar}> 
+                {prop.title} 
+            </Text>
         </TouchableOpacity>
     );
 }
@@ -31,6 +34,7 @@ function get_users() {
     });
 }
 
+// Chat or Message. Friend will be a subset ->> Social
 export default function Friend() {
     const [data, setData] = useState([]);
 
@@ -57,7 +61,7 @@ export default function Friend() {
             </TouchableOpacity>
             <FlatList
                 data = {data}
-                renderItem = {({ item }) => <Item title={item.name} id={item.id}/>}
+                renderItem = {({ item }) => <Friends title={item.name} id={item.id}/>}
                 keyExtractor={(item) => item.id}
             />            
         </View>

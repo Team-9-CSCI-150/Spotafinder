@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from './node_modules/react'
 import { 
     View, 
     TextInput, 
@@ -16,20 +16,24 @@ function sign_up(valid, firstName, lastName, email, password) {
     if (valid) {
         FireBase.auth().createUserWithEmailAndPassword(email, password)
         .then(() => {
-            var uID = FireBase.auth().currentUser.uid;
-            var db = FireBase.firestore();
+            FireBase.auth().currentUser.sendEmailVerification()
+            .then(() => {
+                alert('Send a verify email to ' + email);
+                
+                FireBase.firestore()
+                .collection('users').doc(uID)
+                .set({  //This might be a function
+                    id: uID,
+                    first_name: firstName,
+                    last_name: lastName,
+                    email: email,
+                    password: password,
+                }).catch((error) => {
+                    alert(error.message);
+                });
 
-            db.collection('users').doc(uID).set({ //This might be a function
-                ID: uID,
-                name: firstName + lastName,
-                email: email,
-                password: password,
-            }).catch((error) => {
-                alert(error.message);
-            })
-
-            //FireBase.storage().ref().child(uID + '/images');
-            Router.navigation('Home', {Home: 'Home'});
+                Router.navigation('Login', {Login: 'Login'});
+            });
         })
         .catch((error) => {
             alert(error.message);

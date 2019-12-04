@@ -1,6 +1,6 @@
 import { View, TouchableOpacity } from 'react-native';
 
-import React from 'react';
+import React from './node_modules/react';
 import Style from './style'
 import Router from '../../navigator/router';
 

@@ -11,5 +11,14 @@ export default style = StyleSheet.create({
     },
     direction: {
         flexDirection: "row",
+    },
+    bar: {
+        width: Window_Width * .90,
+        height: 90,
+        borderRadius: 15, 
+        backgroundColor: 'pink',
+        marginBottom: 25,
+        justifyContent: 'center',
+        alignItems: 'center',
     }
 });

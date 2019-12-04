@@ -6,7 +6,7 @@ import {
     ScrollView 
 } from 'react-native';
 
-import React from 'react';
+import React from './node_modules/react';
 import Style from './style';
 
 export default function Area(){
