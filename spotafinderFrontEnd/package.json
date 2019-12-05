@@ -13,6 +13,7 @@
     "firebase": "^6.6.1",
     "native-base": "^2.13.8",
     "react": "16.8.3",
+    "react-activity-feed": "^0.9.24",
     "react-dom": "^16.8.6",
     "react-native": "https://github.com/expo/react-native/archive/sdk-34.0.0.tar.gz",
     "react-native-app-intro-slider": "^3.0.0",
