@@ -14,6 +14,13 @@ export default function Libary() {
                 onPress = {() => NavigatorService.navigation('Home', {Home: 'Home'})}
                 
             />
+            <Button 
+                title = "Menu"
+                color = "blue"
+                height= "10px"
+                onPress = {() => NavigatorService.navigation('menu', {menu: 'menu'})}
+                
+            />
 
 
 
