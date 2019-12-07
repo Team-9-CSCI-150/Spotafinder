@@ -10,7 +10,7 @@ import Register from '../scenes/register-scene';
 import newLogin from '../scenes/new-login';
 import mapScene      from '../scenes/map-scene';
 import menu from '../scenes/Menu';
-//import feed from '../scenes/feed-test';
+//mport feed from '../scenes/feed-test';
 
 const SwitchNavigator = createSwitchNavigator(
     {
@@ -22,7 +22,7 @@ const SwitchNavigator = createSwitchNavigator(
         newLogin: newLogin,
         mapScene: mapScene,
         menu:menu,
-        //feed:feed,
+       // feed:feed,
     },
     {
         initialRouteName: 'menu',

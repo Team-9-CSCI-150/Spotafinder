@@ -1,17 +1,42 @@
 //This is an example code to show image in a button//
 import React, { Component } from 'react';
 import NavigatorService from '../navigators/navigator-service';
+//import AppIntroSlider from 'react-native-app-intro-slider';
 //import react in our code.
  
 import { StyleSheet, View, Text, Image, TouchableOpacity, ImageBackground } from 'react-native';
 //import all the components we are going to use.
- 
-export default class App extends Component<{}> {
+//import { SliderBox } from 'react-native-image-slider-box';
+import TimedSlideshow from 'react-native-timed-slideshow';
+export default class App extends Component {
+
   render() {
+    const items = [
+      {
+          uri: "https://upload.wikimedia.org/wikipedia/en/thumb/7/7c/Fresno_State_Bulldogs_logo.svg/1280px-Fresno_State_Bulldogs_logo.svg.png",
+          title: "Michael Malik",
+          text: "Minnesota, USA",
+      },
+      {
+          uri: "http://blog.adrenaline-hunter.com/wp-content/uploads/2018/05/bungee-jumping-barcelona-1680x980.jpg",
+          title: "Victor Fallon",
+          text: "Val di Sole, Italy",
+          duration: 4000
+      },
+      {
+          uri: "https://greatist.com/sites/default/files/Running_Mountain.jpg",
+          title: "Mary Gomes",
+          text: "Alps",
+          //fullWidth: true
+      }
+  ];
     return (
       <ImageBackground source={{uri:'https://wallpaperplay.com/walls/full/c/c/1/329974.jpg',}} style={{width: '100%', height: '100%'}}>     
    <View>
 
+   
+
+  
    <Image
             //We are showing the Image from online
             source={{
@@ -24,20 +49,20 @@ export default class App extends Component<{}> {
             style={styles.New}
           />
   
-<View >
-          <Image
-            //We are showing the Image from online
-            source={{
-              uri:
-                'https://im4.ezgif.com/tmp/ezgif-4-607f3ae6e41d.png',
-            }}
-            //You can also show the image from you project directory like below
-            //source={require('./Images/google-plus.png')}
-            //Image Style
-            style={styles.Fresno}
-          />
-          <View style={styles.SeparatorLine} />
-          
+  <View style={styles.slider}>
+        <TimedSlideshow
+        
+            items={items}
+           titleStyle={ {fontSize: 10} }
+           textStyle={ {fontSize: 10} }
+            footerStyle = {{backgroundColor: (0,0,0,0)}} // rgba   a= opacity
+            showProgressBar={false}
+            renderCloseIcon={() => {return true}}
+            //extraSpacing={0}
+           renderIcon={() => {return true}}
+           //fullWidth={true}
+
+        />
         </View>
 
     <View style={styles.MainContainer1}>
@@ -93,7 +118,7 @@ export default class App extends Component<{}> {
             //Image Style
             style={styles.ImageIconStyle}
           />
-          <View style={styles.SeparatorLine} />
+          
           <Text style={styles.TextStyle}> TWO </Text>
         </TouchableOpacity>
 
@@ -110,7 +135,7 @@ export default class App extends Component<{}> {
             //Image Style
             style={styles.ImageIconStyle}
           />
-          <View style={styles.SeparatorLine} />
+          
           <Text style={styles.TextStyle}> TWO </Text>
         </TouchableOpacity>
       </View>
@@ -133,13 +158,15 @@ const styles = StyleSheet.create({
     marginLeft:180,
     alignItems: 'center',
   },
-  Fresno: {
-    padding: 10,
-    margin: 5,
-    height: 200,
-    width: 430,
+  slider:{
+   // padding: 10,
+    //margin: 5,
+    height: 220,
+    width: 500,
     resizeMode: 'stretch',
     marginTop:100,
+    marginBottom:50,
+    //marginRight:500,
   },
   //First View----------------------------------
   MainContainer1: {
@@ -242,7 +269,25 @@ const styles = StyleSheet.create({
     width: 1,
     height: 40,
   },
+  title: {
+    fontSize: 26,
+    color: '#fff',
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginTop: 20,
+  },
+  text: {
+    color: '#fff',
+    fontSize: 20,
+  },
+  image: {
+    width: 200,
+    height: 200,
+    resizeMode: 'contain'
+  },
 });
+
+
 /*
 const styles = StyleSheet.create({
   container: {
