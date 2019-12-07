@@ -33,8 +33,6 @@ class configureDB:
                 self.EEdb = firebase.database()
                 self.Ldb = firebase.database()
 
-        
-
 
 def countDevices():
         devices = 0
