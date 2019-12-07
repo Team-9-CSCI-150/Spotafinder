@@ -8,19 +8,19 @@ import { StyleSheet, View, Text, Image, TouchableOpacity, ImageBackground } from
 //import all the components we are going to use.
 //import { SliderBox } from 'react-native-image-slider-box';
 import TimedSlideshow from 'react-native-timed-slideshow';
-export default class App extends Component {
+export default class menu extends Component {
 
   render() {
     const items = [
       {
           uri: "https://upload.wikimedia.org/wikipedia/en/thumb/7/7c/Fresno_State_Bulldogs_logo.svg/1280px-Fresno_State_Bulldogs_logo.svg.png",
-          title: "Michael Malik",
-          text: "Minnesota, USA",
+          title: "SHPE",
+          text: "Society Hispanic Professional Engineering",
       },
       {
           uri: "http://blog.adrenaline-hunter.com/wp-content/uploads/2018/05/bungee-jumping-barcelona-1680x980.jpg",
-          title: "Victor Fallon",
-          text: "Val di Sole, Italy",
+          title: "SASE",
+          text: "Society of Asian Engineers",
           duration: 4000
       },
       {

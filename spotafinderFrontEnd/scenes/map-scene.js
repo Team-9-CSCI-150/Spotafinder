@@ -1,81 +1,107 @@
+import { 
+    View, 
+    TextInput, 
+    Button, 
+    Text, 
+    ScrollView, 
+    TouchableOpacity,
+    FlatList
+} from 'react-native';
+
 import React, { useState, useEffect } from 'react';
-import { View, TextInput, StyleSheet, Button, Image, Text } from 'react-native';
-import { Window_Width, Window_Height, Icon } from '../style';
+import firebase from 'firebase';
 
-import NavigatorService from '../navigators/navigator-service';
-import { ScrollView } from 'react-native';
+function Building(prop) {
+    return (
+        <TouchableOpacity style = {{alignItems: 'center'}}>
+            <View style = {Style.building_cont}>
+                <Text>
+                    ASME: {prop.number_wifi}
+                </Text>
+            </View>
+        </TouchableOpacity>
+    );
+}
 
-export default function Map(){
+function get_building() {
+    return new Promise((resolve) => {
+        var path = firebase.firestore().collection('buildings').doc('s9FBU4nWcBzsit7qmXnL');
+        path.get().then((doc) => {
+            var buildings = Object.keys(doc.data()).map((key) => { return {name: key} });
+            resolve(buildings);
+        });
+    });
+}
+
+function get_wifi() {
+    return new Promise((resolve) => {
+        var path = firebase.database().ref().child('Engineering East').child('rooms').child('ASME');
+        path.on('value', (snapshot) => {
+            var number = 0;
+            snapshot.forEach((snapChild) => {
+                number = snapChild.val();
+                resolve(number)
+            });
+        });
+    });
+}
+
+
+export default function Map() {
+    const [building, setBuilding] = useState([]);
+    const [example, setSnitch] = useState(0);
+
+    useEffect(() => {
+        // Create an scoped async function in the hook
+        setInterval(() => {
+            async function get_fetch() {
+                setBuilding(await get_building());
+                setSnitch(await get_wifi());
+            }
+            get_fetch();
+        }, 100);
+        // Execute the created function directly
+    });
 
     return(
-        //Conatiner of page has flex 1 to fill the whole display
-        <ScrollView style = {styles.container}>
-            {/*Fresno State Title*/}
-            <Text style = {styles.map_txt}>
+        <ScrollView style = {Style.container}> 
+            <Text style = {Style.map_txt}>  {/*Fresno State Title*/}
                 Fresno State
             </Text>
-            <View style = {styles.shortcuts}>
-                <View style = {styles.back_button}>
-                {/*Back Button*/}
-                <Button
-                    title = 'Back'
-                />
+            <View style = {Style.shortcuts}>
+                <View style = {Style.back_button}>
+                    {/*Back Button*/}
+                    <Button
+                        title = 'Back'
+                        onPress = {() => NavigatorService.navigation('Library', {Library: 'Library'})}
+                    />
                 </View>
                 {/*Search Bar*/}
                 <TextInput
-                    style = {styles.search_bar}
+                    style = {Style.search_bar}
                     placeholder = 'Search'
                     //onChangeText = {userName => inputName(userName)}
                     textAlign = 'center'
                 />
             </View>
-            <View style = {{alignItems: 'center'}}> 
-                <View style = {styles.building_cont}>
-                    <Text>
-                        Library
-                    </Text>
-                </View>
-                <View style = {styles.building_cont}>
-                    <Text>
-                        Engineering East
-                    </Text>
-                </View>
-                <View style = {styles.building_cont}>
-                    <Text>
-                        Engineering West
-                    </Text>
-                </View>
-                <View style = {styles.building_cont}>
-                    <Text>
-                        IT
-                    </Text>
-                </View>
-                <View style = {styles.building_cont}>
-                    <Text>
-                        McKee Fisk
-                    </Text>
-                </View>
-                <View style = {styles.building_cont}>
-                    <Text>
-                        Science 1
-                    </Text>
-                </View>
-                <View style = {styles.building_cont}>
-                    <Text>
-                        Science 2
-                    </Text>
-                </View>
-                <View style = {styles.building_cont}>
-                    <Text>
-                        Food Court
-                    </Text>
-                </View>
-            </View>
+            
+            <Building
+                number_wifi = {example}
+            />
+            {/* <FlatList
+                data = {building}
+                keyExtractor={(item) => {
+                    item.name
+                }}
+                renderItem = {({item}) => 
+                    <Building title = {item.name}/>
+                }
+            /> */}
         </ScrollView>
     );
 }
 
-const styles = StyleSheet.create({
+const  styles = StyleSheet.create({
     //container for screen
     container: {
         //width: Window_Width,

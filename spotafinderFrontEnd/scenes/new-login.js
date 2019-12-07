@@ -1,65 +1,85 @@
-import React, { Component } from 'react';
-import NavigatorService from '../navigators/navigator-service';
-import {
-  StyleSheet,
-  Text,
-  View,
-  TextInput,
-  Button,
-  TouchableHighlight,
-  Image,
-  Alert
-} from 'react-native';
+import React, { useState } from 'react';
+import { View } from 'react-native';
+import { emailFormat, passwordFormat } from './scenes/constants';
 
-export default class newLogin extends Component {
+// Functioness components
+import Input from 'Input';
+import Button from 'Button';
 
-  constructor(props) {
-    super(props);
-    state = {
-      email   : '',
-      password: '',
+// Important data
+
+import NavigationService from './navigators/navigator-service';
+import Firebase from 'firebase';
+
+function sign_in(valid, email, password) {
+    if (valid) {
+        Firebase.auth().signInWithEmailAndPassword(email, password)
+        .then(() => {
+            if (Firebase.auth().currentUser.emailVerified) {
+                NavigationService.navigation('Home', {Home: 'Home'});
+            }
+            else {
+                alert(email + ' has not been verified');
+            }
+        })
+        .catch(function(error) {
+            alert(error.message);
+        });
     }
-  }
-
-  
-
-  render() {
-    return (
-      <View style={styles.container}>
-        <View style={styles.inputContainer}>
-          <Image style={styles.inputIcon} source={{uri: 'https://png.icons8.com/message/ultraviolet/50/3498db'}}/>
-          <TextInput style={styles.inputs}
-              placeholder="Email"
-              keyboardType="email-address"
-              underlineColorAndroid='transparent'
-              onChangeText={(email) => this.setState({email})}/>
-        </View>
-        
-        <View style={styles.inputContainer}>
-          <Image style={styles.inputIcon} source={{uri: 'https://png.icons8.com/key-2/ultraviolet/50/3498db'}}/>
-          <TextInput style={styles.inputs}
-              placeholder="Password"
-              secureTextEntry={true}
-              underlineColorAndroid='transparent'
-              onChangeText={(password) => this.setState({password})}/>
-        </View>
-
-        <TouchableHighlight style={[styles.buttonContainer, styles.loginButton]} onPress={() => NavigatorService.navigation('Library', {Library: 'Library'})}>
-          <Text style={styles.loginText}>Login</Text>
-        </TouchableHighlight>
-
-        <TouchableHighlight style={styles.buttonContainer} onPress={() => NavigatorService.navigation('createAccount', {createAccount: 'createAccount'})}>
-            <Text>Forgot your password?</Text>
-        </TouchableHighlight>
-
-        <TouchableHighlight style={styles.buttonContainer} onPress = {() => NavigatorService.navigation('Register', {Register: 'Register'})}>
-            <Text>Register</Text>
-        </TouchableHighlight>
-      </View>
-    );
-  }
+    else {
+        alert('Invalid format!');
+    }
 }
 
+export default function newLogin() {
+    const [email, inputEmail] = useState('');
+    const [password, inputPassword] = useState('');
+    
+    return (
+        <View style = {Styles.container}>
+            <Input
+                style      = {[Styles.inputContainer, Styles.inputIcon, Styles.inputs]}
+                image      = {{uri: 'https://png.icons8.com/message/ultraviolet/50/3498db'}}
+                textHolder = 'Enter Email'
+                isSecure   = {false}
+                keyboard   = 'email-address'
+                underline  = 'transparent'
+                input      = {inputEmail}
+            />
+            <Input
+                style      = {[Styles.inputContainer, Styles.inputIcon, Styles.inputs]}
+                image      = {{uri: 'https://png.icons8.com/message/ultraviolet/50/3498db'}}
+                textHolder = "Enter Password"
+                isSecure   = {true}
+                keyboard   = 'default'
+                underline  = 'transparent'
+                input      = {inputPassword}
+            />
+            
+            <Button
+                style   = {[Styles.buttonContainer, Styles.loginButton, Styles.loginText]}
+                text    = 'Login!'
+                onPress = {() => {
+                    sign_in(emailFormat.test(email) && passwordFormat.test(password), email, password);
+                }}
+            />
+            <Button
+                style   = {[Styles.buttonContainer, , ]}
+                text    = 'Forgot your password?'
+                onPress = {() => {
+                    Router.navigation('createAccount', {createAccount: 'createAccount'});
+                }}
+            />
+            <Button
+                style   = {[Styles.buttonContainer, , ]}
+                text    = 'Register!'
+                onPress = {() => {
+                    Router.navigation('Register', {Register: 'Register'});
+                }}
+            />
+      </View>
+    );
+}
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -106,4 +126,3 @@ const styles = StyleSheet.create({
     color: 'white',
   }
 });
- 
