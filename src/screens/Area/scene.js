@@ -17,7 +17,7 @@ function Building(prop) {
         <TouchableOpacity style = {{alignItems: 'center'}}>
             <View style = {Style.building_cont}>
                 <Text>
-                    {prop.title}
+                    ASME: {prop.number_wifi}
                 </Text>
             </View>
         </TouchableOpacity>
@@ -34,18 +34,35 @@ function get_building() {
     });
 }
 
+function get_wifi() {
+    return new Promise((resolve) => {
+        var path = firebase.database().ref().child('Engineering East').child('rooms').child('ASME');
+        path.on('value', (snapshot) => {
+            var number = 0;
+            snapshot.forEach((snapChild) => {
+                number = snapChild.val();
+                resolve(number)
+            });
+        });
+    });
+}
+
 
 export default function Area() {
     const [building, setBuilding] = useState([]);
+    const [example, setSnitch] = useState(0);
 
     useEffect(() => {
         // Create an scoped async function in the hook
-        async function get_fetch() {
-            setBuilding(await get_building());
-        }
+        setInterval(() => {
+            async function get_fetch() {
+                setBuilding(await get_building());
+                setSnitch(await get_wifi());
+            }
+            get_fetch();
+        }, 100);
         // Execute the created function directly
-        get_fetch();
-    }, []);
+    });
 
     return(
         <ScrollView style = {Style.container}> 
@@ -68,7 +85,11 @@ export default function Area() {
                     textAlign = 'center'
                 />
             </View>
-            <FlatList
+            
+            <Building
+                number_wifi = {example}
+            />
+            {/* <FlatList
                 data = {building}
                 keyExtractor={(item) => {
                     item.name
@@ -76,7 +97,7 @@ export default function Area() {
                 renderItem = {({item}) => 
                     <Building title = {item.name}/>
                 }
-            />
+            /> */}
         </ScrollView>
     );
 }

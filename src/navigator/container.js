@@ -17,7 +17,7 @@ export default createAppContainer(
             'Friend': {screen: friend},
         },
         {
-            initialRouteName: 'Register',
+            initialRouteName: 'Area',
         },
     )
 );
