@@ -3,7 +3,7 @@ from random import seed
 from random import randint
 import time as ti
 import csv
-from datetime import *
+from datetime import datetime, timedelta
 
 
 class updateOccupancy:
@@ -12,18 +12,10 @@ class updateOccupancy:
                 self.Ldb = Ldb
         
         def send(self):
-                ee281occ = countDevices()
-                ee283occ = randint(0,20)
-                lfloor1 = randint(0,100)
-                lfloor2 = randint(0,100)
-                print('ee281: ' + str(ee281occ))
-                print('ee283: ' + str(ee283occ))
-                EEdata = {"Engineering East/rooms/EE281":{"occupancy": ee281occ},
-                        "Engineering East/rooms/EE283":{"occupancy": ee283occ}}
+                eeSD = countDevices()
+                EEdata = {"Engineering East/rooms/Senior Design":{"occupancy": eeSD}}
                 self.EEdb.update(EEdata)
-                Ldata = {"Library/floors/1":{"occupancy": lfloor1},
-                        "Library/floors/2":{"occupancy": lfloor2}}
-                self.Ldb.update(Ldata)
+                
 
         def pandasData(self):
                 
@@ -49,22 +41,28 @@ class configureDB:
 
 
 def countDevices():
-        i = 0
+        devices = 0
         x = []
         flag = False
-        with open('testDec2-01.csv',newline='', encoding='utf-8') as csvfile:
+        with open('outputSniffSeniorD-01.csv',newline='', encoding='utf-8') as csvfile:
                 cr = csv.DictReader(csvfile)
-                t = datetime.today()
+                t = datetime.today()- timedelta(minutes=5)
                 for row in cr:
                         for j in row.items():
                                 if flag:
-                                        d = datetime.strptime(j[1][2], " %Y-%m-%d %H:%M:%S")
-                                        if d < t:
-                                                x.append(d)
+                                        try:
+                                            d = datetime.strptime(j[1][2], " %Y-%m-%d %H:%M:%S")
+                                        except IndexError:
+                                            pass
+                                        if d > t:
+                                                x.append(int(j[1][3]))
                                 if j[1][0] == 'Station MAC':
                                         flag = True
-                print(len(x))
-                return len(x)
+                
+                for i in x:
+                    if i >= -60:
+                        devices += 1
+                return devices
 
 
 
@@ -82,4 +80,3 @@ if __name__ == '__main__':
         main()
 
         
-#class with each csv index
