@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from './node_modules/react';
+import React, { useState, useEffect } from 'react';
 import { View, FlatList, TouchableOpacity, Text } from 'react-native';
 
 import Firebase from '../../configs/firebase';
@@ -20,7 +20,7 @@ function get_users() {
     return new Promise((resolve) => {
         var array = []; 
         var currUser = Firebase.auth().currentUser.uid;
-        var users = Firebase.firestore().collection('users');
+        var users = Firebase.firestore().collection('users')
         users.get().then((query) => {
             query.forEach((doc) => {
                 if (currUser !== doc.id) {
@@ -61,7 +61,7 @@ export default function Friend() {
             </TouchableOpacity>
             <FlatList
                 data = {data}
-                renderItem = {({ item }) => <Friends title={item.name} id={item.id}/>}
+                renderItem = {({item}) => <Friends title={item.name}/>}
                 keyExtractor={(item) => item.id}
             />            
         </View>

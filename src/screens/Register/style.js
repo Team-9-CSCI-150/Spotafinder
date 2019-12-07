@@ -8,6 +8,7 @@ export default styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: 'white',
         //backgroundColor: '#d1d1d1',
+        
     },
 
     registration_txt: {

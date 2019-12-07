@@ -3,26 +3,62 @@ import {
     TextInput, 
     Button, 
     Text, 
-    ScrollView 
+    ScrollView, 
+    TouchableOpacity,
+    FlatList
 } from 'react-native';
 
-import React from './node_modules/react';
+import React, { useState, useEffect } from 'react';
 import Style from './style';
+import firebase from '../../configs/firebase';
 
-export default function Area(){
+function Building(prop) {
+    return (
+        <TouchableOpacity style = {{alignItems: 'center'}}>
+            <View style = {Style.building_cont}>
+                <Text>
+                    {prop.title}
+                </Text>
+            </View>
+        </TouchableOpacity>
+    );
+}
+
+function get_building() {
+    return new Promise((resolve) => {
+        var path = firebase.firestore().collection('buildings').doc('s9FBU4nWcBzsit7qmXnL');
+        path.get().then((doc) => {
+            var buildings = Object.keys(doc.data()).map((key) => { return {name: key} });
+            resolve(buildings);
+        });
+    });
+}
+
+
+export default function Area() {
+    const [building, setBuilding] = useState([]);
+
+    useEffect(() => {
+        // Create an scoped async function in the hook
+        async function get_fetch() {
+            setBuilding(await get_building());
+        }
+        // Execute the created function directly
+        get_fetch();
+    }, []);
+
     return(
-        <ScrollView style = {Style.container}>
-            {/*Fresno State Title*/}
-            <Text style = {Style.map_txt}>
+        <ScrollView style = {Style.container}> 
+            <Text style = {Style.map_txt}>  {/*Fresno State Title*/}
                 Fresno State
             </Text>
             <View style = {Style.shortcuts}>
                 <View style = {Style.back_button}>
-                {/*Back Button*/}
-                <Button
-                    title = 'Back'
-                    onPress = {() => NavigatorService.navigation('Library', {Library: 'Library'})}
-                />
+                    {/*Back Button*/}
+                    <Button
+                        title = 'Back'
+                        onPress = {() => NavigatorService.navigation('Library', {Library: 'Library'})}
+                    />
                 </View>
                 {/*Search Bar*/}
                 <TextInput
@@ -32,48 +68,15 @@ export default function Area(){
                     textAlign = 'center'
                 />
             </View>
-            <View style = {{alignItems: 'center'}}> 
-                <View style = {Style.building_cont}>
-                    <Text>
-                        Library
-                    </Text>
-                </View>
-                <View style = {Style.building_cont}>
-                    <Text>
-                        Engineering East
-                    </Text>
-                </View>
-                <View style = {Style.building_cont}>
-                    <Text>
-                        Engineering West
-                    </Text>
-                </View>
-                <View style = {Style.building_cont}>
-                    <Text>
-                        IT
-                    </Text>
-                </View>
-                <View style = {Style.building_cont}>
-                    <Text>
-                        McKee Fisk
-                    </Text>
-                </View>
-                <View style = {Style.building_cont}>
-                    <Text>
-                        Science 1
-                    </Text>
-                </View>
-                <View style = {Style.building_cont}>
-                    <Text>
-                        Science 2
-                    </Text>
-                </View>
-                <View style = {Style.building_cont}>
-                    <Text>
-                        Food Court
-                    </Text>
-                </View>
-            </View>
+            <FlatList
+                data = {building}
+                keyExtractor={(item) => {
+                    item.name
+                }}
+                renderItem = {({item}) => 
+                    <Building title = {item.name}/>
+                }
+            />
         </ScrollView>
     );
 }

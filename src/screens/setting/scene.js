@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, TextInput, Button, Text, TouchableOpacity, ScrollView } from 'react-native';
 
-import router from '../navigators/navigator-service';
+import router from '../../navigator/router';
 import style from './style';
 
 export default function Setting() {

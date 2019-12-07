@@ -1,4 +1,4 @@
-import React, { useState } from './node_modules/react'
+import React, { useState } from 'react'
 import { 
     View, 
     TextInput, 
@@ -18,12 +18,10 @@ function sign_up(valid, firstName, lastName, email, password) {
         .then(() => {
             FireBase.auth().currentUser.sendEmailVerification()
             .then(() => {
-                alert('Send a verify email to ' + email);
-                
+                alert('Just send a verify email to ' + email);
                 FireBase.firestore()
-                .collection('users').doc(uID)
-                .set({  //This might be a function
-                    id: uID,
+                .collection('users').doc(FireBase.auth().currentUser.uid)
+                .set({  
                     first_name: firstName,
                     last_name: lastName,
                     email: email,
@@ -45,17 +43,11 @@ function sign_up(valid, firstName, lastName, email, password) {
 }
 
 export default function Register() {
-    const [firstName, inputFirst] = useState('');
-    const [lastName, inputLast] = useState('');
-    const [email, inputEmail] = useState('');
-    const [password, inputPassword] = useState('');
-    const [confirm, inputConfirm] = useState('');
-
-    const [isFirstName, validFirstName] = useState(false);
-    const [isLastName, validLastName] = useState(false);
-    const [isEmail, validEmail] = useState(false);
-    const [isPassowrd, validPassword] = useState(false);
-    const [isConfirmPassword, validConfirmPassword] = useState(false);
+    const [firstName, inputFirst] = useState({name: '', valid: false});
+    const [lastName, inputLast] = useState({name: '', valid: false});
+    const [email, inputEmail] = useState({name: '', valid: false});
+    const [password, inputPassword] = useState({name: '', valid: false});
+    const [confirm, inputConfirm] = useState(false);
 
     return(
         <View style = {Style.container}>
@@ -76,8 +68,7 @@ export default function Register() {
                     placeholder = 'First Name'
                     textAlign = 'center'
                     onChangeText = {(firstName) => {
-                        inputFirst(firstName);
-                        validFirstName(nameFormat.test(firstName));
+                        inputFirst({name: firstName, valid: nameFormat.test(firstName)});
                     }}
                 />
                 {/*LAST NAME*/}
@@ -86,8 +77,7 @@ export default function Register() {
                     placeholder = 'Last Name'
                     textAlign = 'center'
                     onChangeText = {(lastName) => {
-                        inputLast(lastName);
-                        validLastName(nameFormat.test(lastName));
+                        inputLast({name: lastName, valid: nameFormat.test(lastName)});
                     }}
                 />
                 {/*EMAIL; incorporate error if invalid email*/}
@@ -96,19 +86,17 @@ export default function Register() {
                     placeholder = 'Organization Email'
                     textAlign = 'center'
                     onChangeText = {(email) => { 
-                        inputEmail(email);
-                        validEmail(emailFormat.test(email));
+                        inputEmail({name: email, valid: emailFormat.test(email)});
                     }}
                 />
                 {/*CREATE PASSWORD*/}
                 <TextInput
                     style = {Style.user_content}
                     placeholder = 'Create Password'
-                    onChangeText = {(password) => {
-                        inputPassword(password);
-                        validPassword(passwordFormat.test(password));
-                    }}
                     textAlign = 'center'
+                    onChangeText = {(password) => {
+                        inputPassword({name: password, valid: passwordFormat.test(password)});
+                    }}
                 />
                 {/*CONFIRM PASSWORD*/}
                 <TextInput
@@ -116,8 +104,7 @@ export default function Register() {
                     placeholder = 'Confrim Password'
                     textAlign = 'center'
                     onChangeText = {(confirm) => {
-                        inputConfirm(confirm);
-                        validConfirmPassword(confirm == password);
+                        inputConfirm(confirm == password.name);
                     }} 
                 />
             </View>
@@ -127,8 +114,8 @@ export default function Register() {
                     //style = {styles.confirm_button}
                     title = 'Sign Up'
                     onPress = {() => {
-                        var valid = isFirstName && isLastName && isEmail && isPassowrd && isConfirmPassword;
-                        sign_up(valid, firstName, lastName, email, password);
+                        var valid = firstName.valid && lastName.valid && email.valid && password.valid && confirm;
+                        sign_up(valid, firstName.name, lastName.name, email.name, password.name);
                     }}
                 />
             </View>

@@ -1,6 +1,6 @@
 import { StyleSheet, Image } from 'react-native';
 
-import { Window_Width, Window_Height } from '../style';
+import { Window_Width, Window_Height } from '../../utils/constants';
 
 const styles = StyleSheet.create({
     //container for screen
