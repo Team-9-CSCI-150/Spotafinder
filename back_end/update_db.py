@@ -16,10 +16,6 @@ class updateOccupancy:
                 EEdata = {"Engineering East/rooms/Senior Design":{"occupancy": eeSD}}
                 self.EEdb.update(EEdata)
                 
-
-        def pandasData(self):
-                
-
 class configureDB:
         def __init__(self, EEdb, Ldb):
                 self.EEdb = EEdb
