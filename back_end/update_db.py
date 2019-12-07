@@ -73,7 +73,7 @@ def main():
         seed(1)
         while True:
                 o.send()
-                ti.sleep(300)
+                ti.sleep(60)
                 
 
 if __name__ == '__main__':

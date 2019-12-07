@@ -19,7 +19,7 @@ class pandasData:
 data = list(csv.reader(open('/Users/Vince/Documents/GitHub/Spotafinder/back_end/outputSniffASME-01.csv')))
 addresses = [pandasData(a, data[0], "people_{}".format(i+1)) for i, a in enumerate(data[1:])]
 
-print(addresses[0][9])
+print(addresses[0])
 
 # class updateOccupancy:
 #         def __init__(self, EEdb, Ldb):
