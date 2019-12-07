@@ -3,8 +3,8 @@ import { View } from 'react-native';
 import { emailFormat, passwordFormat } from '../../utils/constants';
 
 // Functioness components
-import Input from '../../components/Input';
-import Button from '../../components/Button';
+import Input from './components/Input';
+import Button from './components/Button';
 
 // Important data
 import Styles from './style';
