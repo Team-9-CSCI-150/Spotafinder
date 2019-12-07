@@ -54,6 +54,8 @@ def countDevices():
         with open('testDec2-01.csv',newline='', encoding='utf-8') as csvfile:
                 cr = csv.DictReader(csvfile)
                 t = datetime.today()
+                s = t - datetime.timedelta(minutes=5)
+                print(s)
                 for row in cr:
                         for j in row.items():
                                 if flag:
