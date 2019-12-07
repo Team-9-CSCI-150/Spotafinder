@@ -77,5 +77,3 @@ if __name__ == '__main__':
         main()
 
         
-#class with each csv index
-
