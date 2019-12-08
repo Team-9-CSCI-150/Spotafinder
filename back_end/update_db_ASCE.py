@@ -16,6 +16,7 @@ class updateOccupancy:
                 EEdata = {"Engineering East/rooms/Senior Design":{"occupancy": eeSD}}
                 self.EEdb.update(EEdata)
                 
+
 class configureDB:
         def __init__(self, EEdb, Ldb):
                 self.EEdb = EEdb
@@ -32,6 +33,8 @@ class configureDB:
                 firebase = pyrebase.initialize_app(config)
                 self.EEdb = firebase.database()
                 self.Ldb = firebase.database()
+
+        
 
 
 def countDevices():
@@ -74,3 +77,5 @@ if __name__ == '__main__':
         main()
 
         
+#class with each csv index
+
