@@ -54,20 +54,18 @@ export default function Area() {
     const [example, setSnitch] = useState(0);
 
     useEffect(() => {
-        // Create an scoped async function in the hook
-        var hasRun = false;
+        var isTask = true;
         setInterval(() => {
-            hasRun = false
-        }, 1000);
-        async function get_fetch() {
-            if (hasRun) return;
-            hasRun = true;
-            setBuilding(await get_building());
-            setSnitch(await get_wifi());
-        }
-        get_fetch();
-        // Execute the created function directly
-    });
+            async function get_fetch() {
+                setBuilding(await get_building());
+                setSnitch(await get_wifi());
+            }
+            if (isTask) 
+                get_fetch();
+        }, 100);
+
+        return () => { isTask = false };
+    }, []);
 
     return(
         <ScrollView style = {Style.container}> 
