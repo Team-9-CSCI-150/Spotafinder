@@ -38,6 +38,7 @@ export default class Home extends Component {
                     />
                 </View>
 
+                <View style = {Style.container}>
                 <View style = {Style.row}>
                     <TouchableOpacity
                         style = {Style.button_size}
@@ -84,6 +85,7 @@ export default class Home extends Component {
                             source = {Assets.welcome} 
                             style = {Style.button_size}/>
                     </TouchableOpacity>
+                </View>
                 </View>
             </ImageBackground>
         );

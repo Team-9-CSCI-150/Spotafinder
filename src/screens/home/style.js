@@ -9,8 +9,8 @@ export default styles = StyleSheet.create({
         alignItems: 'center'
     },
     profile_size: {
-        width: Window_Width * 0.15,
-        height: Window_Height * 0.1,
+        width: Window_Width * 0.3,
+        height: Window_Height * 0.15,
         marginTop: Window_Height * 0.1,
         marginBottom: Window_Height * 0.03,
         borderRadius: 10,
@@ -23,17 +23,23 @@ export default styles = StyleSheet.create({
         borderRadius: Window_Width * 0.05,
         borderWidth: Window_Width * 0.002
     },
+    container: {
+        width: Window_Width * 0.8,
+        height: Window_Height * 0.4,
+        flexDirection: 'column',
+        justifyContent: 'space-evenly'
+        
+    },
     row: {
         flexDirection: 'row',
-        marginTop: Window_Height * 0.03,
-        justifyContent: 'space-around'
+        justifyContent: 'space-evenly'
     },
     button_size: {
         width: Window_Width * 0.3,
         height: Window_Height * 0.15,
         overflow: "hidden",
         borderRadius: Window_Width * 0.04,
-    },
+    }
 });
   
 
