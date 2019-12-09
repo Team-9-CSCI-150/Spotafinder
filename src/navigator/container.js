@@ -20,7 +20,7 @@ export default createAppContainer(
            // 'Upload': {screen: ImagePickerExample}
         },
         {
-            initialRouteName: 'Home',
+            initialRouteName: 'Register',
         },
     )
 );
