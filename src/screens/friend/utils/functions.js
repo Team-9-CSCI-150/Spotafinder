@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { View, FlatList, TouchableOpacity, Text } from 'react-native';
 
-import Firebase from '../../configs/firebase';
-import Style from './style';
+import Firebase from '../../../configs/firebase';
+import Style from '../style';
 
 function Item(prop) {
     return (
