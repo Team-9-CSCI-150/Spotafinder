@@ -10,6 +10,10 @@ function sign_up() {
     })
 }
 
+function displaying() {
+    return new Promise();
+}
+
 export default {
     sign_up
 }

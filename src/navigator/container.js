@@ -18,7 +18,7 @@ export default createAppContainer(
             'Setting': {screen: setting}
         },
         {
-            initialRouteName: 'Login',
+            initialRouteName: 'Setting',
         },
     )
 );
