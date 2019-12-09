@@ -1,12 +1,30 @@
 import { StyleSheet } from 'react-native';
+import { Window_Width, Window_Height} from '../../utils/constants';
 
 export default styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-      backgroundColor: '#DCDCDC',
-    },
+  container: {
+    width: Window_Width,
+    height: Window_Height,
+    alignItems: 'center',
+    backgroundColor: '#DCDCDC',
+    //backgroundColor: '#d1d1d1',
+    
+},
+
+    // container: {
+    //   // flex: 1,
+    //   width: Window_Width,
+    //   height: Window_Height,
+    //   justifyContent: 'center',
+    //   alignItems: 'center',
+    //   backgroundColor: '#DCDCDC',
+    // },
+    icon__content: {
+      width: 160,
+     height: 160,
+     marginTop: Window_Height * 0.15,
+      marginBottom: Window_Height * 0.045
+  },
     inputContainer: {
         borderBottomColor: '#F5FCFF',
         backgroundColor: '#FFFFFF',
@@ -40,7 +58,7 @@ export default styles = StyleSheet.create({
       borderRadius:30,
     },
     loginButton: {
-      backgroundColor: "#00b5ec",
+      backgroundColor: "#465362",
     },
     loginText: {
       color: 'white',
