@@ -11,6 +11,7 @@ import TimeSlideShow from 'react-native-timed-slideshow';
 import Style from './style'
 import Router from '../../navigator/router';
 import Assets from './utils/constants';
+//import ImagePickerExample from '../screens/home/utils/upload';
 
 export default class Home extends Component {
 
@@ -26,6 +27,7 @@ export default class Home extends Component {
                 />
                 
                 <View style = {Style.slider_size}>
+               {/* // <ImagePickerExample></ImagePickerExample> */}
                     <TimeSlideShow   
                         items = {Assets.slider}
                         titleStyle = { {fontSize: 10} }
