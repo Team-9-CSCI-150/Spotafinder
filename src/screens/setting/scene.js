@@ -1,12 +1,20 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, TextInput, Button, Text, TouchableOpacity, ScrollView } from 'react-native';
-import {  } from './utils/functions';
 
 import Router from '../../navigator/router';
 import Style from './style';
 import Functions from './utils/functions';
 
 export default function Setting() {
+    const [user, setUser] = useState({});
+
+    useEffect(() => {
+        async function get_fetch() {
+            setUser(await Functions.displaying());
+        }
+        get_fetch();
+    }, []);
+
     return(
         //NEED LOGOUT FIREBASE AUTHENTICATION
         //Conatiner of page has flex 1 to fill the whole display
@@ -40,19 +48,19 @@ export default function Setting() {
                         </Text>
                         <TextInput
                             style = {Style.user_content}
-                            placeholder = 'First Name'
+                            placeholder = {user.first_name}
                             //onChangeText = {confirmPassowrd => inputConfirmPassword(confirmPassowrd)}
                             textAlign = 'center'
                         />
                         <TextInput
                             style = {Style.user_content}
-                            placeholder = 'Last Name'
+                            placeholder = {user.last_name}
                             //onChangeText = {confirmPassowrd => inputConfirmPassword(confirmPassowrd)}
                             textAlign = 'center'
                         />
                         <TextInput
                             style = {Style.user_content}
-                            placeholder = 'Organization Email'
+                            placeholder = {user.email}
                             //onChangeText = {confirmPassowrd => inputConfirmPassword(confirmPassowrd)}
                             textAlign = 'center'
                         />

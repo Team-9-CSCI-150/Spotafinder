@@ -11,9 +11,22 @@ function sign_up() {
 }
 
 function displaying() {
-    return new Promise();
+    return new Promise((resolve) => {
+        var currUser = Firebase.auth().currentUser.uid;
+        Firebase.firestore().collection('users').get().then((query) => {
+            query.forEach((doc) => {
+                if (currUser == doc.id) {
+                    console.log(doc.data());
+                    resolve(doc.data());
+                    return;
+                }
+            })
+        })
+
+    });
 }
 
 export default {
-    sign_up
+    sign_up,
+    displaying
 }
