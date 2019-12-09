@@ -18,11 +18,13 @@ const slider = [
 ];
 const background = require('../assets/images/background.png');
 const profile = require('../assets/images/liu.png');
+const nnnn = require('../assets/images/hiking.png');
 
 const map = require('../assets/videos/map.gif');
 const friends = require('../assets/videos/friends.gif');
 const setting = require('../assets/videos/setting.gif');
 const news = require('../assets/videos/news.gif');
+
 
 export default {
     slider, 
@@ -31,6 +33,7 @@ export default {
     map, 
     friends,
     setting,
-    news
+    news,
+    nnnn
 }
 
