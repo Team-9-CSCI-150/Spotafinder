@@ -4,6 +4,18 @@ import * as ImagePicker from 'expo-image-picker';
 import Constants from 'expo-constants';
 import * as Permissions from 'expo-permissions';
 import Assets from '../../utils/constants';
+import Firebase from '../../../../configs/firebase';
+
+function profile(path) {
+    var storage = Firebase.storage().ref();
+    var image = storage.child('images').child(Firebase.auth().currentUser.uid);
+
+    var message = path.split('/');
+    var data = message[message.length - 1];
+    image.child(data).putString(data).then(() => {
+        console.log('Image ' + data + ' have upload!');
+    });
+}
 
 export default class ImagePickerExample extends React.Component {
   state = {
@@ -14,21 +26,24 @@ export default class ImagePickerExample extends React.Component {
     let { image } = this.state;
 
     return (
-      
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <TouchableOpacity onPress={this._pickImage} >
-           
-            <Image source = {Assets.profile} style={{width: 120, height: 120}}/>   
-                                
+        <TouchableOpacity 
+            onPress = {() => {
+                this._pickImage()
+            }}
+        >
+            {image ? 
+                (<Image source={{ uri: image }} style={{ width: 120, height: 120 }} />) :
+                (<Image source = {Assets.profile} style={{width: 120, height: 120}}/>)
+            }
         </TouchableOpacity>
-        {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
+        
       </View>
     );
   }
 
   componentDidMount() {
     this.getPermissionAsync();
-    console.log('hi');
   }
 
   getPermissionAsync = async () => {
@@ -48,10 +63,9 @@ export default class ImagePickerExample extends React.Component {
       quality: 1
     });
 
-    console.log(result);
-
     if (!result.cancelled) {
       this.setState({ image: result.uri });
+      profile(result.uri);
     }
   };
 }
