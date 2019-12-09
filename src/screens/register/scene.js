@@ -106,19 +106,21 @@ export default function Register() {
                     }}
                     textAlign = 'center'
                 />
-            {/* </View> */}
-            <View style = {Style.confirm_button}>
-                {/*CONFIRM*/}
-                <Button
-                    //style = {styles.confirm_button}
-                    title = 'Sign Up'
-                    color = 'white'
-                    onPress = {() => {
-                        var valid = firstName.valid && lastName.valid && email.valid && password.valid && confirm;
-                        sign_up(valid, firstName.name, lastName.name, email.name, password.name);
-                    }}
-                />
+                {/* </View> */}
+                <View style = {Style.confirm_button}>
+                    {/*CONFIRM*/}
+                    <Button
+                        //style = {styles.confirm_button}
+                        title = 'Sign Up'
+                        color = 'white'
+                        onPress = {() => {
+                            var valid = firstName.valid && lastName.valid && email.valid && password.valid && confirm;
+                            sign_up(valid, firstName.name, lastName.name, email.name, password.name);
+                        }}
+                    />
+                </View>
             </View>
-        </View>
+        </KeyboardAvoidingView>
+
     );
 }
