@@ -62,9 +62,7 @@ export default function Area() {
                             />
                         }
                 />
-<<<<<<< HEAD
-=======
-            </View>
+            {/* </View>
             <FlatList
                 data = {rooms}
                 keyExtractor={(item) => {
@@ -76,8 +74,7 @@ export default function Area() {
                         occupany = {item.occupany}
                     />
                 }
-            />
->>>>>>> 9391158e8784c96040618f9c9c5c369c07498c02
+            /> */}
         </ScrollView>
     );
 }
