@@ -1,11 +1,12 @@
 import React from 'react';
 import { View, TextInput, Button, Text, TouchableOpacity, ScrollView } from 'react-native';
+import {  } from './utils/functions';
 
 import Router from '../../navigator/router';
 import Style from './style';
+import Functions from './utils/functions';
 
 export default function Setting() {
-
     return(
         //NEED LOGOUT FIREBASE AUTHENTICATION
         //Conatiner of page has flex 1 to fill the whole display
@@ -55,7 +56,13 @@ export default function Setting() {
                             //onChangeText = {confirmPassowrd => inputConfirmPassword(confirmPassowrd)}
                             textAlign = 'center'
                         />
-                        <TouchableOpacity style = {Style.logOut}>  
+                        <TouchableOpacity 
+                            style = {Style.logOut}
+                            onPress = {() => {
+                                Functions.sign_up();
+                                Router.navigation('Login', {Login: 'Login'});
+                            }}
+                        >  
                             <Text>
                                 Log Out
                             </Text>
