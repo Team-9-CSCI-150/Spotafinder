@@ -11,7 +11,7 @@ export default class Welcome extends Component {
       show_App: false
     };
   }
-  
+
   onDone = () => {
     this.setState(() => Router.navigation('Register', {Register: 'Register'}));
     ///this.setState(<Router component ={Home} title="Home" initial = {true} /> );

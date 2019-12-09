@@ -11,7 +11,6 @@ import Style from './style';
 import Router from '../../navigator/router';
 import Firebase from '../../configs/firebase';
 
-
 function sign_in(valid, email, password) {
     if (valid) {
         Firebase.auth().signInWithEmailAndPassword(email, password)
@@ -37,6 +36,7 @@ export default function Login() {
     const [password, inputPassword] = useState('');
     
     return (
+      
         <View style = {Style.container}>
          {/*LOGO*/}
             <Image

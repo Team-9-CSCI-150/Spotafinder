@@ -21,7 +21,6 @@ export default class Home extends Component {
                 source = {Assets.background} 
                 style = {Style.background_size}
             >
-            
                 <Image
                     source = {Assets.profile}
                     style = {Style.profile_size}
