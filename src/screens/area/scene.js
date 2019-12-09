@@ -62,6 +62,22 @@ export default function Area() {
                             />
                         }
                 />
+<<<<<<< HEAD
+=======
+            </View>
+            <FlatList
+                data = {rooms}
+                keyExtractor={(item) => {
+                    item.name
+                }}
+                renderItem = {({item}) => 
+                    <Building 
+                        name = {item.name}
+                        occupany = {item.occupany}
+                    />
+                }
+            />
+>>>>>>> 9391158e8784c96040618f9c9c5c369c07498c02
         </ScrollView>
     );
 }
