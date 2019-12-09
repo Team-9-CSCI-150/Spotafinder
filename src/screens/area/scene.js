@@ -25,7 +25,6 @@ export default function Area() {
             if (isTask) 
                 get_fetch();
         }, 100);
-
         return () => { isTask = false };
     }, []);
 
@@ -62,19 +61,6 @@ export default function Area() {
                             />
                         }
                 />
-            {/* </View>
-            <FlatList
-                data = {rooms}
-                keyExtractor={(item) => {
-                    item.name
-                }}
-                renderItem = {({item}) => 
-                    <Building 
-                        name = {item.name}
-                        occupany = {item.occupany}
-                    />
-                }
-            /> */}
         </ScrollView>
     );
 }

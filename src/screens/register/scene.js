@@ -4,7 +4,6 @@ import {
     TextInput, 
     Button, 
     Image, 
-    ScrollView,
     KeyboardAvoidingView
 } from 'react-native';
 import { nameFormat, emailFormat, passwordFormat } from '../../utils/constants';
@@ -78,60 +77,46 @@ export default function Register() {
                         }}
                         textAlign = 'center'
                     />
-                    </View>
-                    {/*EMAIL; incorporate error if invalid email*/}
-                    <TextInput
-                        style = {Style.large_content}
-                        placeholder = 'Organization Email'
-                        onChangeText = {(email) => { 
-                            inputEmail({name: email, valid: emailFormat.test(email)});
+                </View>
+                {/*EMAIL; incorporate error if invalid email*/}
+                <TextInput
+                    style = {Style.large_content}
+                    placeholder = 'Organization Email'
+                    onChangeText = {(email) => { 
+                        inputEmail({name: email, valid: emailFormat.test(email)});
+                    }}
+                    textAlign = 'center'
+                />
+                {/*CREATE PASSWORD*/}
+                <TextInput
+                    style = {Style.large_content}
+                    placeholder = 'Create Password'
+                    onChangeText = {(password) => {
+                        inputPassword({name: password, valid: passwordFormat.test(password)});
+                    }}
+                    textAlign = 'center'
+                />
+                {/*CONFIRM PASSWORD*/}
+                <TextInput
+                    style = {Style.large_content}
+                    placeholder = 'Confrim Password'
+                    onChangeText = {(confirm) => {
+                        inputConfirm(confirm == password.name);
+                    }}
+                    textAlign = 'center'
+                />
+                {/* </View> */}
+                <View style = {Style.confirm_button}>
+                    {/*CONFIRM*/}
+                    <Button
+                        //style = {styles.confirm_button}
+                        title = 'Sign Up'
+                        color = 'white'
+                        onPress = {() => {
+                            var valid = firstName.valid && lastName.valid && email.valid && password.valid && confirm;
+                            sign_up(valid, firstName.name, lastName.name, email.name, password.name);
                         }}
-                        textAlign = 'center'
                     />
-                    {/*CREATE PASSWORD*/}
-                    <TextInput
-                        style = {Style.large_content}
-                        placeholder = 'Create Password'
-                        onChangeText = {(password) => {
-                            inputPassword({name: password, valid: passwordFormat.test(password)});
-                        }}
-                        textAlign = 'center'
-                    />
-                    {/*CONFIRM PASSWORD*/}
-                    <TextInput
-                        style = {Style.large_content}
-                        placeholder = 'Confrim Password'
-                        onChangeText = {(confirm) => {
-                            inputConfirm(confirm == password.name);
-                        }}
-                        textAlign = 'center'
-                    />
-                    {/* </View> */}
-                    <View style = {Style.confirm_button}>
-                        {/*CONFIRM*/}
-                        <Button
-                            //style = {styles.confirm_button}
-                            title = 'Sign Up'
-                            color = 'white'
-                            onPress = {() => {
-                                var valid = firstName.valid && lastName.valid && email.valid && password.valid && confirm;
-                                sign_up(valid, firstName.name, lastName.name, email.name, password.name);
-                            }}
-                            textAlign = 'center'
-                        />
-                    {/* </View> */}
-                    <View style = {Style.confirm_button}>
-                        {/*CONFIRM*/}
-                        <Button
-                            //style = {styles.confirm_button}
-                            title = 'Sign Up'
-                            color = 'white'
-                            onPress = {() => {
-                                var valid = firstName.valid && lastName.valid && email.valid && password.valid && confirm;
-                                sign_up(valid, firstName.name, lastName.name, email.name, password.name);
-                            }}
-                        />
-                    </View>
                 </View>
             </View>
         </KeyboardAvoidingView>
