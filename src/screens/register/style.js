@@ -26,6 +26,13 @@ export default styles = StyleSheet.create({
         borderColor: '#21364d',
     },
 
+    icon_content: {
+        width: 160,
+        height: 160,
+        marginTop: Window_Height * 0.15,
+        marginBottom: Window_Height * 0.045
+    },
+
     confirm_button: {
         width: Window_Width * 0.45,
         height: Window_Height * 0.05,
@@ -34,12 +41,7 @@ export default styles = StyleSheet.create({
         backgroundColor: 'pink'
     },
 
-    icon_content: {
-        width: 160,
-        height: 160,
-        marginTop: Window_Height * 0.15,
-        marginBottom: Window_Height * 0.045
-    },
+    
 
     user_content: {
         width: Window_Width * 0.45,

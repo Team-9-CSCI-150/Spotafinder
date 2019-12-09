@@ -64,6 +64,7 @@ export default function Register() {
             <View style = {Style.text_container}>
                 {/*FIRST NAME*/}
                 <TextInput
+                
                     style = {Style.user_content}
                     placeholder = 'First Name'
                     textAlign = 'center'
