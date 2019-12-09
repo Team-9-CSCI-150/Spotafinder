@@ -49,7 +49,6 @@ export default function Area() {
                     textAlign = 'center'
                 />
             </View>
-            
             <FlatList
                 data = {rooms}
                 keyExtractor={(item) => {
