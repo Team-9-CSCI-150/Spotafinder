@@ -7,7 +7,7 @@ export default function Building(prop) {
     return (
         <TouchableOpacity style = {{alignItems: 'center'}}>
             <View style = {Style.building_cont}>
-                <Text>
+                <Text style = {{color: 'white'}}>
                     {prop.name}: {prop.occupany}
                 </Text>
             </View>
