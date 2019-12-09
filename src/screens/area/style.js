@@ -3,12 +3,35 @@ import { Window_Width, Window_Height} from '../../utils/constants';
 
 export default styles = StyleSheet.create({
     //container for screen
+    // container: {
+    //     //width: Window_Width,
+    //     //height: Window_Height,
+    //     flex: 1,
+    //     backgroundColor: 'white',
+    //     //alignItems: 'center',
+    // },
     container: {
-        //width: Window_Width,
-        //height: Window_Height,
         flex: 1,
-        backgroundColor: 'white',
+        //backgroundColor: '#D2D2D2',
+        backgroundColor: '#E2E2E2',
         //alignItems: 'center',
+        //justifyContent: 'center',
+    },
+    
+    second_cotainer: {
+        width: Window_Width * .90,
+        height: Window_Height * .9,
+        backgroundColor: '#E2E2E2',
+        alignItems: 'center',
+        //shadowColor: 'black',
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 8,
+        },
+        shadowOpacity: 0.44,
+        shadowRadius: 10.32,
+        elevation: 16,
     },
     
     //fresno state text
@@ -23,8 +46,6 @@ export default styles = StyleSheet.create({
 
     //Search Bar, Back button Flex
     shortcuts: {
-        //backgroundColor: 'pink',
-        //flex: 1,
         margin: 20,
         flexDirection: 'row',
         justifyContent: 'space-between'
@@ -35,14 +56,15 @@ export default styles = StyleSheet.create({
         width: 70,
         height: Window_Height * .05,
         borderRadius: 15,
-        backgroundColor: 'pink',
+        // backgroundColor: '#465362',
+        backgroundColor: '#D65821',
         alignItems: 'center',
         justifyContent: 'center',
     },
 
     back_text: {
         fontSize: 10,
-        textDecorationLine: 'underline',
+        //textDecorationLine: 'underline',
     },
 
     //Search Bar
@@ -50,49 +72,18 @@ export default styles = StyleSheet.create({
         width: Window_Width * 0.45,
         height: Window_Height * 0.05,
         borderRadius: 15,
-        backgroundColor: 'pink'
+        backgroundColor: 'white'
     },
-
-    /*
-    //second container; NOT USING
-    second_container: {
-        backgroundColor: 'pink',
-        //width: Window_Width * .80,
-        //height: Window_Height * .80,
-        //marginTop: 24,
-        marginLeft: 10,
-        marginRight: 10,
-        marginTop: 10, 
-        marginBottom: 40,
-        padding: 10, 
-        //paddingLeft: 10,
-        //paddingRight: 10,
-        flex: 1,
-        alignItems: 'center',
-        //By deafault the direction is set to column
-        flexDirection: 'column',
-        overflow: 'scroll',
-    },
-    */
 
     //Building Place Holder
     building_cont: {
         width: Window_Width * .90,
         height: 90,
         borderRadius: 15, 
-        backgroundColor: 'pink',
+        // backgroundColor: '#D65821',
+        backgroundColor: '#465362',
         marginBottom: 25,
         justifyContent: 'center',
         alignItems: 'center',
     },
-
-    /*NOT USING
-    room_container: {
-        width: 300,
-        height: 500,
-        backgroundColor: 'white',
-        justifyContent: 'space-between',
-        marginTop: 48,
-    },
-    */
 });
