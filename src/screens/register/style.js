@@ -39,8 +39,8 @@ export default styles = StyleSheet.create({
         marginTop: Window_Height * 0.005,
         marginBottom: Window_Height * 0.030,
         borderRadius: 15,
-        backgroundColor: '#ABA194',
-        //backgroundColor: 'white',
+        //backgroundColor: '#ABA194',
+        backgroundColor: 'white',
         flexDirection: 'row',
     },
 
@@ -50,9 +50,9 @@ export default styles = StyleSheet.create({
         marginTop: Window_Height * 0.005,
         marginBottom: Window_Height * 0.030,
         borderRadius: 15,
-        //backgroundColor: 'white',
+        backgroundColor: 'white',
         //backgroundColor: '#c41230',
-        backgroundColor: '#F9DC5C',
+        //backgroundColor: '#F9DC5C',
         flexDirection: 'row',
     },
 

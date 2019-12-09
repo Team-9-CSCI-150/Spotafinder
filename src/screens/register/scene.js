@@ -56,7 +56,7 @@ export default function Register() {
                 {/*LOGO*/}
                 <Image
                     style = {Style.icon_content}
-                    source = {require('../../assets/logo_red.png')}
+                    source = {require('../../assets/spotafinder_logo.png')}
                     resizeMode = 'contain'
                 />
                 <View style = {Style.fl_container}>
@@ -112,6 +112,7 @@ export default function Register() {
                 <Button
                     //style = {styles.confirm_button}
                     title = 'Sign Up'
+                    color = 'white'
                     onPress = {() => {
                         var valid = firstName.valid && lastName.valid && email.valid && password.valid && confirm;
                         sign_up(valid, firstName.name, lastName.name, email.name, password.name);
