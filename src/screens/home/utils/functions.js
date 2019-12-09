@@ -1,10 +1,11 @@
-import * as React from 'react';
-import { Button, Image, View,TouchableOpacity, ImageBackground } from 'react-native';
+import React from 'react';
+import { Image, View,TouchableOpacity } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import Constants from 'expo-constants';
 import * as Permissions from 'expo-permissions';
-import Assets from '../../utils/constants';
-import Firebase from '../../../../configs/firebase';
+
+import Assets from './constants';
+import Firebase from '../../../configs/firebase';
 
 function profile(path) {
     var storage = Firebase.storage().ref();

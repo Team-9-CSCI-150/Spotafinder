@@ -1,17 +1,15 @@
+import React, { Component } from 'react';
 import { 
     View, 
-    Text, 
-    Image, 
     TouchableOpacity, 
     ImageBackground 
 } from 'react-native';
-
-import React, { Component } from 'react';
 import TimeSlideShow from 'react-native-timed-slideshow';
+
 import Style from './style'
 import Router from '../../navigator/router';
 import Assets from './utils/constants';
-import ImagePickerExample from './assets/upload/scene';
+import ImagePickerExample from './utils/functions';
 
 export default class Home extends Component {
 
@@ -21,15 +19,7 @@ export default class Home extends Component {
                 source = {Assets.background} 
                 style = {Style.background_size}
             >
-            {/* <TouchableOpacity> */}
-            <ImagePickerExample style={Style.profile_size}>
-
-            {/* <Image
-                    source = {Assets.profile}
-                    style = {Style.profile_size}
-                /> */}
-            </ImagePickerExample>
-           {/* // </TouchableOpacity> */}
+                <ImagePickerExample style={Style.profile_size}/>
                 
                 <View style = {Style.slider_size}>
                     <TimeSlideShow   
