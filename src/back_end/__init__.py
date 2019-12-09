@@ -19,4 +19,7 @@ sudo service avahi-daemon restart
 sudo airodump-ng -w testermaker --output-format csv wlan1mon
 //this will make the .csv file and write to it "testermaker" is the name of the file
 
+alias python='/usr/bin/python3.4'
+$ . ~/.bashrc
+
 '''
