@@ -30,37 +30,36 @@ export default function Area() {
 
     return(
         <ScrollView style = {Style.container}> 
-                <Text style = {Style.map_txt}>  
-                        Fresno State
-                    </Text>
-                    <View style = {Style.shortcuts}>
-                        <View style = {Style.back_button}>
-                            <Button
-                                title = 'Back'
-                                color = 'white'
-                                onPress = {() => Router.navigation('Home', {Home: 'Home'})}
-                            />
-                        </View>
-                        {/*Search Bar*/}
-                        <TextInput
-                            style = {Style.search_bar}
-                            placeholder = 'Search'
-                            textAlign = 'center'
-                        />
-                    </View>
-                    
-                    <FlatList
-                        data = {rooms}
-                        keyExtractor={(item) => {
-                            item.name
-                        }}
-                        renderItem = {({item}) => 
-                            <Building 
-                                name = {item.name}
-                                occupany = {item.occupany}
-                            />
-                        }
+            <Text style = {Style.map_txt}>  
+                Fresno State
+            </Text>
+            <View style = {Style.shortcuts}>
+                <View style = {Style.back_button}>
+                    <Button
+                        title = 'Back'
+                        color = 'white'
+                        onPress = {() => Router.navigation('Home', {Home: 'Home'})}
+                    />
+                </View>
+                <TextInput
+                    style = {Style.search_bar}
+                    placeholder = 'Search'
+                    textAlign = 'center'
                 />
+            </View>
+                    
+            <FlatList
+                data = {rooms}
+                keyExtractor={(item) => {
+                    item.name
+                }}
+                renderItem = {({item}) => 
+                    <Building 
+                        name = {item.name}
+                        occupany = {item.occupany}
+                    />
+                }
+            />
         </ScrollView>
     );
 }
