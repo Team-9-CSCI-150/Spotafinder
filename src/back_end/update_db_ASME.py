@@ -46,7 +46,7 @@ def countDevices():
                                 if flag:
                                         try:
                                             d = datetime.strptime(j[1][2], " %Y-%m-%d %H:%M:%S")
-                                        except IndexError:
+                                        except (IndexError, ValueError) as error:
                                             pass
                                         if d > t:
                                                 x.append(int(j[1][3]))

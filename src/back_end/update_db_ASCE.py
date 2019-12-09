@@ -13,7 +13,7 @@ class updateOccupancy:
         
         def send(self):
                 eeSD = countDevices()
-                EEdata = {"Engineering East/rooms/Senior Design":{"occupancy": eeSD}}
+                EEdata = {"Engineering East/rooms/ASCE":{"occupancy": eeSD}}
                 self.EEdb.update(EEdata)
                 
 
@@ -41,7 +41,7 @@ def countDevices():
         devices = 0
         x = []
         flag = False
-        with open('outputSniffSeniorD-01.csv',newline='', encoding='utf-8') as csvfile:
+        with open('outputSniffASCE-01.csv',newline='', encoding='utf-8') as csvfile:
                 cr = csv.DictReader(csvfile)
                 t = datetime.today()- timedelta(minutes=5)
                 for row in cr:
@@ -49,7 +49,7 @@ def countDevices():
                                 if flag:
                                         try:
                                             d = datetime.strptime(j[1][2], " %Y-%m-%d %H:%M:%S")
-                                        except IndexError:
+                                        except (IndexError, ValueError) as error:
                                             pass
                                         if d > t:
                                                 x.append(int(j[1][3]))
