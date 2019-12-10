@@ -6,7 +6,7 @@ function sign_up() {
         alert('You have sign out!');
     })
     .catch((error) => {
-        alert('Something is wrong');
+        alert(error);
     })
 }
 
