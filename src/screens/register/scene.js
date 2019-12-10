@@ -59,6 +59,7 @@ export default function Register() {
             <TextInput
                 style = {Style.large_content}
                 placeholder = 'Organization Email'
+                keyboardType = 'email-address'
                 textAlign = 'center'
                 onChangeText = {(email) => { 
                     inputEmail({name: email, valid: emailFormat.test(email)});
@@ -69,7 +70,7 @@ export default function Register() {
             <TextInput
                 style = {Style.large_content}
                 placeholder = 'Create Password'
-                secureTextEntry={true}
+                secureTextEntry = {true}
                 textAlign = 'center'
                 onChangeText = {(password) => {
                     inputPassword({name: password, valid: passwordFormat.test(password)});
@@ -82,7 +83,7 @@ export default function Register() {
                 style = {Style.large_content}
                 placeholder = 'Confrim Password'
                 textAlign = 'center'
-                secureTextEntry={true}
+                secureTextEntry = {true}
                 onChangeText = {(confirm) => {
                     inputConfirm(confirm == password.name);
                 }}

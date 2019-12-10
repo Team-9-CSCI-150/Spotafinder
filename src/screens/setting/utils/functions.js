@@ -16,7 +16,6 @@ function displaying() {
         Firebase.firestore().collection('users').get().then((query) => {
             query.forEach((doc) => {
                 if (currUser == doc.id) {
-                    console.log(doc.data());
                     resolve(doc.data());
                     return;
                 }
