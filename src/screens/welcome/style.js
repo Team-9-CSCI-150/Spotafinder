@@ -9,13 +9,13 @@ export default styles = StyleSheet.create({
     },
     title: {
       fontSize: 26,
-      color: '#fff',
+      color: 'black',
       fontWeight: 'bold',
       textAlign: 'center',
       marginTop: 20,
     },
     text: {
-      color: '#fff',
+      color: 'black',
       fontSize: 20,
     },
     image: {

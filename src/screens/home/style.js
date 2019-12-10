@@ -6,7 +6,8 @@ export default styles = StyleSheet.create({
     background_size: {
         width: Window_Width,
         height: Window_Height,
-        alignItems: 'center'
+        alignItems: 'center',
+        backgroundColor: '#E2E2E2'
     },
     profile_size: {
         width: Window_Width * 0.3,
@@ -18,7 +19,7 @@ export default styles = StyleSheet.create({
     },
     slider_size: {
         width: Window_Width * 0.9,
-        height: Window_Height * 0.3,
+        height: Window_Height * 0.35,
         overflow: "hidden",
         borderRadius: Window_Width * 0.05,
         borderWidth: Window_Width * 0.002

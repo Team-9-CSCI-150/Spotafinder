@@ -16,7 +16,7 @@ export default class Home extends Component {
     render() {
         return (
             <ImageBackground 
-                source = {Assets.background} 
+                //source = {Assets.background} 
                 style = {Style.background_size}
             >
                 <ImagePickerExample style={Style.profile_size}/>
