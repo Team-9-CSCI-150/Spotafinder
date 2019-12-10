@@ -16,9 +16,7 @@ const slider = [
         text: "50th year Aniversity",
     }
 ];
-const background = require('../assets/images/background.png');
 const profile = require('../assets/images/liu.png');
-//const nnnn = require('../assets/images/hiking.png');
 
 const map = require('../assets/videos/map.gif');
 const friends = require('../assets/videos/friends.gif');
@@ -28,12 +26,10 @@ const news = require('../assets/videos/news.gif');
 
 export default {
     slider, 
-    background,
     profile,
     map, 
     friends,
     setting,
     news
-   // nnnn
 }
 
