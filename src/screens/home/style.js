@@ -6,19 +6,20 @@ export default styles = StyleSheet.create({
     background_size: {
         width: Window_Width,
         height: Window_Height,
-        alignItems: 'center'
+        alignItems: 'center',
+        backgroundColor: '#E2E2E2'
     },
     profile_size: {
         width: Window_Width * 0.3,
         height: Window_Height * 0.15,
         marginTop: Window_Height * 0.1,
         marginBottom: Window_Height * 0.03,
-        borderRadius: 10,
+        borderRadius: Window_Width * 0.04,
         borderWidth: Window_Width * 0.002
     },
     slider_size: {
         width: Window_Width * 0.9,
-        height: Window_Height * 0.3,
+        height: Window_Height * 0.35,
         overflow: "hidden",
         borderRadius: Window_Width * 0.05,
         borderWidth: Window_Width * 0.002

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 
-import AppIntroSlider from './node_modules/react-native-app-intro-slider';
+import AppIntroSlider from 'react-native-app-intro-slider';
 import Router from '../../navigator/router';
-
+import Style from './style'
 export default class Welcome extends Component {
   constructor(props) {
     super(props);
@@ -18,7 +18,7 @@ export default class Welcome extends Component {
   };
 
   onSkip = () => {
-    this.setState(() => Router.navigation('newLogin', {newLogin: 'newLogin'}));
+    this.setState(() => Router.navigation('Login', {Login: 'Login'}));
   };
 
   /*onLogin = () => {
@@ -30,7 +30,7 @@ export default class Welcome extends Component {
   render() {
     if (this.state.show_App) {
       return (
-        <View style={styles.mainapp}>
+        <View style={Style.mainapp}>
 
           <Text style={{ textAlign: 'center', fontSize: 20, color: '#fff' }}>
 
@@ -61,12 +61,12 @@ const slides = [
       text: 'An app that allows you to find free space to hang out, study or eat. If you are already registered press skip.',
       image: {
         uri:
-          'https://imgur.com/7ClQj9M.png',
+          'https://cdn.discordapp.com/attachments/653412026416103444/653825645075497001/446075.png',
       },
-      titleStyle: styles.title,
-      textStyle: styles.text,
-      imageStyle: styles.image,
-      backgroundColor: '#BCF4F5',
+      titleStyle: Style.title,
+      textStyle: Style.text,
+      imageStyle: Style.image,
+      backgroundColor: '#E2E2E2',
     },
     {
       key: 's2',
@@ -74,23 +74,23 @@ const slides = [
       text: 'Click on the map to see if your point of intrest is busy there or not',
       image: {
         uri:
-          'https://imgur.com/BVQ79rh.png',
+          'https://cdn.discordapp.com/attachments/653412026416103444/653822177489059841/customer-support.png',
       },
-      titleStyle: styles.title,
-      textStyle: styles.text,
-      imageStyle: styles.image,
-      backgroundColor: '#B4EBCA',
+      titleStyle: Style.title,
+      textStyle: Style.text,
+      imageStyle: Style.image,
+      backgroundColor:'#FFC17A',
     },
     {
       key: 's3',
       title: 'Ready to Register',
       text: 'Press done when you are ready to register',
       image: {
-        uri: 'https://imgur.com/RPI8wie.png',
+        uri: 'https://cdn.discordapp.com/attachments/653412026416103444/653822128608509973/approval.png',
       },
-      titleStyle: styles.title,
-      textStyle: styles.text,
-      imageStyle: styles.image,
-      backgroundColor: '#D9F2B4',
+      titleStyle: Style.title,
+      textStyle: Style.text,
+      imageStyle: Style.image,
+      backgroundColor: 	'#E2E2E2',
     } 
   ];

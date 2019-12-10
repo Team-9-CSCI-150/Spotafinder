@@ -6,6 +6,7 @@ import home from '../screens/home/scene';
 import area from '../screens/area/scene';
 import friend from '../screens/friend/scene';
 import setting from '../screens/setting/scene';
+import Welcome from '../screens/welcome/scene'
 
 export default createAppContainer(
     createSwitchNavigator(
@@ -15,10 +16,11 @@ export default createAppContainer(
             'Home': {screen: home},
             'Area': {screen: area},
             'Friend': {screen: friend},
-            'Setting': {screen: setting}
+            'Setting': {screen: setting},
+            'Welcome': {screen: Welcome},
         },
         {
-            initialRouteName: 'Home',
+            initialRouteName: 'Welcome',
         },
     )
 );

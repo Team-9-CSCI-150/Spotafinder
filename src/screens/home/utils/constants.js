@@ -1,24 +1,24 @@
 const slider = [
     {
-        uri: require('../assets/images/bulldog_logo.png'),
+        uri: require('../assets/images/fam.png'),
         title: "SHPE",
         text: "Society Hispanic Professional Engineering",
     },
     {
-        uri: require('../assets/images/sky_diving.png'),
+        uri: require('../assets/images/IEEE.png'),
         title: "SASE",
         text: "Society of Asian Engineers",
         duration: 4000
     },
     {
-        uri: require('../assets/images/hiking.png'),
-        title: "Mary Gomes",
-        text: "Alps",
+        uri: require('../assets/images/IEEE2.png'),
+        title: "IEEE",
+        text: "50th year Aniversity",
     }
 ];
 const background = require('../assets/images/background.png');
 const profile = require('../assets/images/liu.png');
-const nnnn = require('../assets/images/hiking.png');
+//const nnnn = require('../assets/images/hiking.png');
 
 const map = require('../assets/videos/map.gif');
 const friends = require('../assets/videos/friends.gif');
@@ -33,7 +33,7 @@ export default {
     map, 
     friends,
     setting,
-    news,
-    nnnn
+    news
+   // nnnn
 }
 
