@@ -9,39 +9,11 @@ import {
 } from 'react-native';
 import { nameFormat, emailFormat, passwordFormat } from '../../utils/constants';
 
-import Router from '../../navigator/router';
 import FireBase from '../../configs/firebase';
+import Router from '../../navigator/router';
+import Functions from './utils/functions';
+import Constants from './utils/constants';
 import Style from './style';
-
-function sign_up(valid, firstName, lastName, email, password) { 
-    if (valid) {
-        FireBase.auth().createUserWithEmailAndPassword(email, password)
-        .then(() => {
-            FireBase.auth().currentUser.sendEmailVerification()
-            .then(() => {
-                alert('Just send a verify email to ' + email);
-                FireBase.firestore()
-                .collection('users').doc(FireBase.auth().currentUser.uid)
-                .set({  
-                    first_name: firstName,
-                    last_name: lastName,
-                    email: email,
-                    password: password,
-                }).catch((error) => {
-                    alert(error.message);
-                });
-
-                Router.navigation('Login', {Login: 'Login'});
-            });
-        })
-        .catch((error) => {
-            alert(error.message);
-        })
-    }
-    else { 
-        alert('Wrong format!');
-    }
-}
 
 export default function Register() {
     const [firstName, inputFirst] = useState({name: '', valid: false});
@@ -52,81 +24,107 @@ export default function Register() {
 
     return(
         <KeyboardAvoidingView style={Style.container} behavior="padding" enabled>
-            <View style = {Style.second_cotainer}>
-                <TouchableOpacity onPress={() => Router.navigation('Login', {Login: 'Login'})}>
+            <TouchableOpacity onPress={() => Router.navigation('Login', {Login: 'Login'})}>
                 {/*LOGO*/}
-                    <Image
+                <Image
                     style = {Style.icon_content}
-                    source = {require('../../assets/spotafinder_logo.png')}
+                    source = {Constants.icon}
                     resizeMode = 'contain'
-                    />
+                />
+            </TouchableOpacity>
 
-                </TouchableOpacity>
-                <View style = {Style.fl_container}>
-                    {/*FIRST NAME*/}
-                    <TextInput
-                        style = {Style.small_content}
-                        placeholder = 'First Name'
-                        onChangeText = {(firstName) => {
-                            inputFirst({name: firstName, valid: nameFormat.test(firstName)});
-                        }}
-                        textAlign = 'center'
-                    />
-                    {/*LAST NAME*/}
-                    <TextInput
-                        style = {Style.small_content}
-                        placeholder = 'Last Name'
-                        onChangeText = {(lastName) => {
-                            inputLast({name: lastName, valid: nameFormat.test(lastName)});
-                        }}
-                        textAlign = 'center'
-                    />
-                </View>
-                {/*EMAIL; incorporate error if invalid email*/}
+            <View style = {Style.fl_container}>
+                {/*FIRST NAME*/}
                 <TextInput
-                    style = {Style.large_content}
-                    placeholder = 'Organization Email'
-                    onChangeText = {(email) => { 
-                        inputEmail({name: email, valid: emailFormat.test(email)});
-                    }}
+                    style = {Style.small_content}
+                    placeholder = 'First Name'
                     textAlign = 'center'
+                    onChangeText = {(firstName) => {
+                        inputFirst({name: firstName, valid: nameFormat.test(firstName)});
+                    }} 
                 />
-                {/*CREATE PASSWORD*/}
+
+                {/*LAST NAME*/}
                 <TextInput
-                    style = {Style.large_content}
-                    placeholder = 'Create Password'
-                    onChangeText = {(password) => {
-                        inputPassword({name: password, valid: passwordFormat.test(password)});
-                    }}
-                    secureTextEntry={true}
-                     textAlign = 'center'
-                    // isSecure   = {true}
-                    // keyboard   = 'default'
-                    // underline  = 'transparent'
-                />
-                {/*CONFIRM PASSWORD*/}
-                <TextInput
-                    style = {Style.large_content}
-                    placeholder = 'Confrim Password'
-                    onChangeText = {(confirm) => {
-                        inputConfirm(confirm == password.name);
-                    }}
+                    style = {Style.small_content}
+                    placeholder = 'Last Name'
                     textAlign = 'center'
-                    secureTextEntry={true}
+                    onChangeText = {(lastName) => {
+                        inputLast({name: lastName, valid: nameFormat.test(lastName)});
+                    }}
                 />
-                {/* </View> */}
-                <View style = {Style.confirm_button}>
-                    {/*CONFIRM*/}
-                    <Button
-                        //style = {styles.confirm_button}
-                        title = 'Sign Up'
-                        color = 'white'
-                        onPress = {() => {
-                            var valid = firstName.valid && lastName.valid && email.valid && password.valid && confirm;
-                            sign_up(valid, firstName.name, lastName.name, email.name, password.name);
-                        }}
-                    />
-                </View>
+            </View>
+
+            {/*EMAIL; incorporate error if invalid email*/}
+            <TextInput
+                style = {Style.large_content}
+                placeholder = 'Organization Email'
+                textAlign = 'center'
+                onChangeText = {(email) => { 
+                    inputEmail({name: email, valid: emailFormat.test(email)});
+                }}
+            />
+
+            {/*CREATE PASSWORD*/}
+            <TextInput
+                style = {Style.large_content}
+                placeholder = 'Create Password'
+                secureTextEntry={true}
+                textAlign = 'center'
+                onChangeText = {(password) => {
+                    inputPassword({name: password, valid: passwordFormat.test(password)});
+                    inputConfirm(confirm == password.name);
+                }}
+            />
+
+            {/*CONFIRM PASSWORD*/}
+            <TextInput
+                style = {Style.large_content}
+                placeholder = 'Confrim Password'
+                textAlign = 'center'
+                secureTextEntry={true}
+                onChangeText = {(confirm) => {
+                    inputConfirm(confirm == password.name);
+                }}
+            />
+
+            {/* </View> */}
+            <View style = {Style.confirm_button}>
+                
+                {/*CONFIRM*/}
+                <Button
+                    title = 'Sign Up'
+                    color = 'white'
+                    onPress = {() => {
+                        var error = '';
+                        if (!firstName.valid) {
+                            error += 'First name is not valid.\n';
+                        }
+
+                        if (!lastName.valid) {
+                            error += 'Last name is not valid.\n';
+                        }
+
+                        if (!email.valid) {
+                            error += 'Email is not a valid.\n';
+                        }
+
+                        if (!password.valid) {
+                            error += 'Password is not a valid.\n';
+                        }
+
+                        if (!confirm) {
+                            error += 'Password doesnt match.\n';
+                        }
+                            
+                        if (error == '') {
+                            Functions.sign_up(FireBase, Router, firstName.name, lastName.name, email.name, password.name);
+                        }
+                        else {
+                            alert("Errors: \n" + error);
+                        }
+                    }}
+                />
             </View>
         </KeyboardAvoidingView>
     );

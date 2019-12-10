@@ -8,10 +8,11 @@ import {
     FlatList
 } from 'react-native';
 
-import Style from './style';
+import Building from './components/Building';
+
 import Router from '../../navigator/router';
 import Functions from './utils/functions';
-import Building from './components/Building';
+import Style from './style';
 
 export default function Area() {
     const [rooms, setRoom] = useState({});

@@ -11,7 +11,7 @@ export default styles = StyleSheet.create({
     
     second_cotainer: {
         width: Window_Width * .90,
-        height: Window_Height * .9,
+        height: Window_Height * 0.9,
         backgroundColor: '#E2E2E2',
         alignItems: 'center',
     },

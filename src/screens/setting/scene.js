@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { View, TextInput, Button, Text, TouchableOpacity, ScrollView } from 'react-native';
+import { View, TextInput, Button, Text, ScrollView } from 'react-native';
 
 import Router from '../../navigator/router';
-import Style from './style';
 import Functions from './utils/functions';
+import Style from './style';
 
 export default function Setting() {
     const [user, setUser] = useState({});
@@ -25,71 +25,48 @@ export default function Setting() {
             
             {/* </View> */}
             <View style = {Style.fourth_container}>
+
                 <Text style = {Style.topic_txt}>
                     PROFILE
                 </Text>
+
                 <TextInput
-                    editable = 'false'
+                    editable = {false}
                     style = {Style.user_content}
                     defaultValue = {user.first_name}
-                    //onChangeText = {confirmPassowrd => inputConfirmPassword(confirmPassowrd)}
                     textAlign = 'center'
                 />
+
                 <TextInput
-                    editable = 'false'
+                    editable = {false}
                     style = {Style.user_content}
                     defaultValue = {user.last_name}
-                    //onChangeText = {confirmPassowrd => inputConfirmPassword(confirmPassowrd)}
                     textAlign = 'center'
                 />
+
                 <TextInput
-                    editable = 'false'
+                    editable = {false}
                     style = {Style.user_content}
                     defaultValue = {user.email}
-                    //onChangeText = {confirmPassowrd => inputConfirmPassword(confirmPassowrd)}
                     textAlign = 'center'
                 />
-                {/*Log out button*/}
-                {/* <TouchableOpacity 
-                    style = {Style.logOut}
-                    // color = 'white'
-                    onPress = {() => {
-                        Functions.sign_up();
-                        Router.navigation('Login', {Login: 'Login'});
-                    }}
-                >
-                    <Text color = 'white'>
-                        Log Out
-                    </Text>
-                </TouchableOpacity> */}
+
                 <View style = {Style.button}>
                     <Button
-                            // style = {Style.logOut}
-                            title = 'Log Out'
-                            color = 'white'
-                            // onPress = {() => Router.navigation('Home', {Home: 'Home'})}
-                            onPress = {() => {
-                                Functions.sign_up();
-                                Router.navigation('Login', {Login: 'Login'});
-                            }}
+                        title = 'Log Out'
+                        color = 'white'
+                        onPress = {() => {
+                            Functions.sign_up();
+                            Router.navigation('Login', {Login: 'Login'});
+                        }}
                     />
                 </View>
-                
-                {/*Back button*/}
-                {/* <TouchableOpacity 
-                    style = {Style.logOut}
-                    onPress = {() => Router.navigation('Home', {Home: 'Home'})}
-                >
-                    <Text>
-                        Back
-                    </Text>
-                </TouchableOpacity> */}
+  
                 <View style = {Style.logOut}>
                     <Button
-                            // style = {Style.logOut}
-                            title = 'Back'
-                            color = 'white'
-                            onPress = {() => Router.navigation('Home', {Home: 'Home'})}
+                        title = 'Back'
+                        color = 'white'
+                        onPress = {() => Router.navigation('Home', {Home: 'Home'})}
                     />
                 </View>
             </View>

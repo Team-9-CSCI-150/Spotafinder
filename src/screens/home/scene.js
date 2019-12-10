@@ -4,12 +4,12 @@ import {
     TouchableOpacity, 
     ImageBackground 
 } from 'react-native';
-import TimeSlideShow from 'react-native-timed-slideshow';
 
-import Style from './style'
-import Router from '../../navigator/router';
-import Assets from './utils/constants';
+import TimeSlideShow from 'react-native-timed-slideshow';
 import ImagePickerExample from './utils/functions';
+import Router from '../../navigator/router';
+import Constants from './utils/constants';
+import Style from './style'
 
 export default class Home extends Component {
 
@@ -22,7 +22,7 @@ export default class Home extends Component {
                 
                 <View style = {Style.slider_size}>
                     <TimeSlideShow   
-                        items = {Assets.slider}
+                        items = {Constants.slider}
                         titleStyle = { {fontSize: 10} }
                         textStyle = { {fontSize: 10} }
                         footerStyle = {{backgroundColor: (0,0,0,0)}}
@@ -41,7 +41,7 @@ export default class Home extends Component {
                             Router.navigation('Area', {Area: 'Area'});
                         }}>
                             <ImageBackground 
-                                source = {Assets.map} 
+                                source = {Constants.map} 
                                 style = {Style.button_size}/>
                         </TouchableOpacity>
 
@@ -49,10 +49,10 @@ export default class Home extends Component {
                             style = {Style.button_size}
                             activeOpacity = {0.5}  
                             onPress = {() => {
-                            Router.navigation('Friend', {Friend: 'Friend'});
+                            Router.navigation('Social', {Social: 'Social'});
                         }}>
                             <ImageBackground 
-                                source = {Assets.friends} 
+                                source = {Constants.friends} 
                                 style = {Style.button_size}/>
                         </TouchableOpacity>
                     </View>
@@ -65,7 +65,7 @@ export default class Home extends Component {
                             Router.navigation('Setting', {Setting: 'Setting'});
                         }}>
                             <ImageBackground 
-                                source = {Assets.setting} //
+                                source = {Constants.setting}
                                 style = {Style.button_size}/>
                         </TouchableOpacity>
 
@@ -76,7 +76,7 @@ export default class Home extends Component {
                             Router.navigation('Welcome', {Welcome: 'Welcome'});
                         }}>
                             <ImageBackground 
-                                source = {Assets.news}
+                                source = {Constants.news}
                                  //
                                 style = {Style.button_size}/>
                         </TouchableOpacity>
