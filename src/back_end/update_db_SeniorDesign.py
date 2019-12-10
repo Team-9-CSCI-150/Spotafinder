@@ -13,9 +13,9 @@ class updateOccupancy:
         
         def send(self):
                 eeSD = countDevices()
-                EEdata = {"Engineering East/rooms/IEEE":{"occupancy": eeSD}}
+                EEdata = {"Engineering East/rooms/Senior Design":{"occupancy": eeSD}}
                 self.EEdb.update(EEdata)
-        
+                
 
 class configureDB:
         def __init__(self, EEdb, Ldb):
@@ -41,7 +41,7 @@ def countDevices():
         devices = 0
         x = []
         flag = False
-        with open('testDec2-01.csv',newline='', encoding='utf-8') as csvfile:
+        with open('outputSniffSeniorD-01.csv',newline='', encoding='utf-8') as csvfile:
                 cr = csv.DictReader(csvfile)
                 t = datetime.today()- timedelta(minutes=5)
                 for row in cr:
@@ -77,5 +77,5 @@ if __name__ == '__main__':
         main()
 
         
-
+#class with each csv index
 

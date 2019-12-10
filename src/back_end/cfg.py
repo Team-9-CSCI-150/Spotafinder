@@ -39,7 +39,7 @@ def get_config():
         os.mkdir(CONFIG_DIR)
 
     if not os.path.exists(CONFIG_SETTINGS_FILE):
-        LOG.debug("piclicker config file: {} doesn't exist, creating now".format(
+        LOG.debug("spotafinder config file: {} doesn't exist, creating now".format(
             CONFIG_SETTINGS_FILE
         ))
         write_config(DEFAULT_CONFIG)
