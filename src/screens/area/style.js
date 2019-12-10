@@ -23,8 +23,6 @@ export default styles = StyleSheet.create({
 
     //Search Bar, Back button Flex
     shortcuts: {
-        //backgroundColor: 'pink',
-        //flex: 1,
         margin: 20,
         flexDirection: 'row',
         justifyContent: 'space-between'
@@ -53,28 +51,6 @@ export default styles = StyleSheet.create({
         backgroundColor: 'pink'
     },
 
-    /*
-    //second container; NOT USING
-    second_container: {
-        backgroundColor: 'pink',
-        //width: Window_Width * .80,
-        //height: Window_Height * .80,
-        //marginTop: 24,
-        marginLeft: 10,
-        marginRight: 10,
-        marginTop: 10, 
-        marginBottom: 40,
-        padding: 10, 
-        //paddingLeft: 10,
-        //paddingRight: 10,
-        flex: 1,
-        alignItems: 'center',
-        //By deafault the direction is set to column
-        flexDirection: 'column',
-        overflow: 'scroll',
-    },
-    */
-
     //Building Place Holder
     building_cont: {
         width: Window_Width * .90,
@@ -85,14 +61,4 @@ export default styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-
-    /*NOT USING
-    room_container: {
-        width: 300,
-        height: 500,
-        backgroundColor: 'white',
-        justifyContent: 'space-between',
-        marginTop: 48,
-    },
-    */
 });
