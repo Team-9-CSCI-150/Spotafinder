@@ -20,7 +20,7 @@ export default createAppContainer(
             'Welcome': {screen: Welcome},
         },
         {
-            initialRouteName: 'Setting',
+            initialRouteName: 'Welcome',
         },
     )
 );
