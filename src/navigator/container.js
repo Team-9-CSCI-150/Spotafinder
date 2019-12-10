@@ -17,10 +17,10 @@ export default createAppContainer(
             'Area': {screen: area},
             'Friend': {screen: friend},
             'Setting': {screen: setting},
-            'welcome': {screen: Welcome},
+            'Welcome': {screen: Welcome},
         },
         {
-            initialRouteName: 'welcome',
+            initialRouteName: 'Welcome',
         },
     )
 );

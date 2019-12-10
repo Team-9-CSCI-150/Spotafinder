@@ -11,14 +11,14 @@ export default styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
-    
-    //second container
-    second_cotainer: {
-        width: Window_Width * .90,
-        height: Window_Height * .9,
-        backgroundColor: '#E2E2E2',
-        //backgroundColor: 'white',
-        //alignItems: 'center',
+
+    map_txt: {
+        textAlign: 'center',
+        fontSize: 30,
+        color: 'black',
+        paddingTop: 60,
+        fontWeight: 'bold',
+        //textDecorationLine: 'underline',
     },
 
     //cancel or done layout
@@ -28,6 +28,21 @@ export default styles = StyleSheet.create({
         margin: 10,
         flexDirection: 'row',
         justifyContent: 'space-between'
+    },
+
+    //Back Button
+    back_button: {
+        width: 70,
+        height: Window_Height * .05,
+        borderRadius: 15,
+        backgroundColor: 'pink',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+
+    back_text: {
+        fontSize: 10,
+        textDecorationLine: 'underline',
     },
 
     //third container
@@ -58,6 +73,7 @@ export default styles = StyleSheet.create({
     fourth_container: {
         flex: 1,
         marginTop: 30,
+        alignItems: 'center',
     },
 
     //text for profile and notifications
@@ -75,12 +91,13 @@ export default styles = StyleSheet.create({
         marginTop: Window_Height * 0.005,
         marginBottom: Window_Height * 0.030,
         borderRadius: 15,
-        backgroundColor: '#BCF4F5'
+        backgroundColor: 'white'
     },
 
     logOut: {
-        width: Window_Width * 0.60,
-        height: Window_Height * 0.06,
+        width: Window_Width * 0.40,
+        height: Window_Height * 0.05,
+        marginBottom: Window_Height * 0.030,
         backgroundColor: 'pink',
         justifyContent: 'center',
         alignItems: 'center',
