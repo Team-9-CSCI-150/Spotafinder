@@ -4,8 +4,8 @@ import {
     TextInput, 
     Button, 
     Image, 
-    ScrollView,
-    KeyboardAvoidingView
+    KeyboardAvoidingView,
+    TouchableOpacity
 } from 'react-native';
 import { nameFormat, emailFormat, passwordFormat } from '../../utils/constants';
 
@@ -38,7 +38,7 @@ function sign_up(valid, firstName, lastName, email, password) {
             alert(error.message);
         })
     }
-    else {
+    else { 
         alert('Wrong format!');
     }
 }
@@ -53,12 +53,15 @@ export default function Register() {
     return(
         <KeyboardAvoidingView style={Style.container} behavior="padding" enabled>
             <View style = {Style.second_cotainer}>
+                <TouchableOpacity onPress={() => Router.navigation('Login', {Login: 'Login'})}>
                 {/*LOGO*/}
-                <Image
+                    <Image
                     style = {Style.icon_content}
                     source = {require('../../assets/spotafinder_logo.png')}
                     resizeMode = 'contain'
-                />
+                    />
+
+                </TouchableOpacity>
                 <View style = {Style.fl_container}>
                     {/*FIRST NAME*/}
                     <TextInput
@@ -95,7 +98,11 @@ export default function Register() {
                     onChangeText = {(password) => {
                         inputPassword({name: password, valid: passwordFormat.test(password)});
                     }}
-                    textAlign = 'center'
+                    secureTextEntry={true}
+                     textAlign = 'center'
+                    // isSecure   = {true}
+                    // keyboard   = 'default'
+                    // underline  = 'transparent'
                 />
                 {/*CONFIRM PASSWORD*/}
                 <TextInput
@@ -105,19 +112,7 @@ export default function Register() {
                         inputConfirm(confirm == password.name);
                     }}
                     textAlign = 'center'
-                />
-            {/* </View> */}
-            <View style = {Style.confirm_button}>
-                {/*CONFIRM*/}
-                <Button
-                    //style = {styles.confirm_button}
-                    title = 'Sign Up'
-                    color = 'white'
-                    onPress = {() => {
-                        var valid = firstName.valid && lastName.valid && email.valid && password.valid && confirm;
-                        sign_up(valid, firstName.name, lastName.name, email.name, password.name);
-                    }}
-                    textAlign = 'center'
+                    secureTextEntry={true}
                 />
                 {/* </View> */}
                 <View style = {Style.confirm_button}>

@@ -13,7 +13,7 @@ export default styles = StyleSheet.create({
         height: Window_Height * 0.15,
         marginTop: Window_Height * 0.1,
         marginBottom: Window_Height * 0.03,
-        borderRadius: 10,
+        borderRadius: Window_Width * 0.04,
         borderWidth: Window_Width * 0.002
     },
     slider_size: {

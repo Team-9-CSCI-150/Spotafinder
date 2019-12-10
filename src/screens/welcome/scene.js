@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 
-import AppIntroSlider from './node_modules/react-native-app-intro-slider';
+import AppIntroSlider from 'react-native-app-intro-slider';
 import Router from '../../navigator/router';
 
 export default class Welcome extends Component {
@@ -18,7 +18,7 @@ export default class Welcome extends Component {
   };
 
   onSkip = () => {
-    this.setState(() => Router.navigation('newLogin', {newLogin: 'newLogin'}));
+    this.setState(() => Router.navigation('Login', {Login: 'Login'}));
   };
 
   /*onLogin = () => {
