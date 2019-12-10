@@ -1,16 +1,15 @@
+import React, { Component } from 'react';
 import { 
     View, 
-    Text, 
-    Image, 
     TouchableOpacity, 
     ImageBackground 
 } from 'react-native';
-
-import React, { Component } from 'react';
 import TimeSlideShow from 'react-native-timed-slideshow';
+
 import Style from './style'
 import Router from '../../navigator/router';
 import Assets from './utils/constants';
+import ImagePickerExample from './utils/functions';
 
 export default class Home extends Component {
 
@@ -20,10 +19,7 @@ export default class Home extends Component {
                 source = {Assets.background} 
                 style = {Style.background_size}
             >
-                <Image
-                    source = {Assets.profile}
-                    style = {Style.profile_size}
-                />
+                <ImagePickerExample style={Style.profile_size}/>
                 
                 <View style = {Style.slider_size}>
                     <TimeSlideShow   
@@ -70,7 +66,7 @@ export default class Home extends Component {
                             Router.navigation('Setting', {Setting: 'Setting'});
                         }}>
                             <ImageBackground 
-                                source = {Assets.setting} 
+                                source = {Assets.setting} //
                                 style = {Style.button_size}/>
                         </TouchableOpacity>
 
@@ -81,7 +77,8 @@ export default class Home extends Component {
                             Router.navigation('Welcome', {Welcome: 'Welcome'});
                         }}>
                             <ImageBackground 
-                                source = {Assets.welcome} 
+                                source = {Assets.news}
+                                 //
                                 style = {Style.button_size}/>
                         </TouchableOpacity>
                     </View>

@@ -6,6 +6,7 @@ import home from '../screens/home/scene';
 import area from '../screens/area/scene';
 import friend from '../screens/friend/scene';
 import setting from '../screens/setting/scene';
+//import ImagePickerExample from '../screens/home/utils/upload';
 
 export default createAppContainer(
     createSwitchNavigator(
@@ -15,7 +16,8 @@ export default createAppContainer(
             'Home': {screen: home},
             'Area': {screen: area},
             'Friend': {screen: friend},
-            'Setting': {screen: setting}
+            'Setting': {screen: setting},
+           // 'Upload': {screen: ImagePickerExample}
         },
         {
             initialRouteName: 'Setting',

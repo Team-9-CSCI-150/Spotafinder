@@ -22,7 +22,7 @@ const profile = require('../assets/images/liu.png');
 const map = require('../assets/videos/map.gif');
 const friends = require('../assets/videos/friends.gif');
 const setting = require('../assets/videos/setting.gif');
-const welcome = require('../assets/videos/welcome.gif');
+const news = require('../assets/videos/news.gif');
 
 export default {
     slider, 
@@ -31,6 +31,6 @@ export default {
     map, 
     friends,
     setting,
-    welcome
+    news
 }
 
