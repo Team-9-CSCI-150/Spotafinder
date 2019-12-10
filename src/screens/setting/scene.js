@@ -50,26 +50,48 @@ export default function Setting() {
                     textAlign = 'center'
                 />
                 {/*Log out button*/}
-                <TouchableOpacity 
+                {/* <TouchableOpacity 
                     style = {Style.logOut}
+                    // color = 'white'
                     onPress = {() => {
                         Functions.sign_up();
                         Router.navigation('Login', {Login: 'Login'});
                     }}
                 >
-                    <Text>
+                    <Text color = 'white'>
                         Log Out
                     </Text>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
+                <View style = {Style.button}>
+                    <Button
+                            // style = {Style.logOut}
+                            title = 'Log Out'
+                            color = 'white'
+                            // onPress = {() => Router.navigation('Home', {Home: 'Home'})}
+                            onPress = {() => {
+                                Functions.sign_up();
+                                Router.navigation('Login', {Login: 'Login'});
+                            }}
+                    />
+                </View>
+                
                 {/*Back button*/}
-                <TouchableOpacity 
+                {/* <TouchableOpacity 
                     style = {Style.logOut}
                     onPress = {() => Router.navigation('Home', {Home: 'Home'})}
                 >
                     <Text>
                         Back
                     </Text>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
+                <View style = {Style.logOut}>
+                    <Button
+                            // style = {Style.logOut}
+                            title = 'Back'
+                            color = 'white'
+                            onPress = {() => Router.navigation('Home', {Home: 'Home'})}
+                    />
+                </View>
             </View>
         </ScrollView>
     );

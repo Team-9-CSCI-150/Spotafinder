@@ -31,13 +31,15 @@ export default styles = StyleSheet.create({
     },
 
     //Back Button
-    back_button: {
-        width: 70,
+    button: {
+        // width: 70,
+        width: Window_Width * .30,
         height: Window_Height * .05,
         borderRadius: 15,
-        backgroundColor: 'pink',
+        backgroundColor: '#D65821',
         alignItems: 'center',
         justifyContent: 'center',
+        marginBottom: Window_Height * .030,
     },
 
     back_text: {
@@ -95,12 +97,25 @@ export default styles = StyleSheet.create({
     },
 
     logOut: {
-        width: Window_Width * 0.40,
+        width: Window_Width * 0.30,
         height: Window_Height * 0.05,
-        marginBottom: Window_Height * 0.030,
-        backgroundColor: 'pink',
+        marginBottom: Window_Height * 0.015,
+        //backgroundColor: 'pink',
+        //backgroundColor: '#D65821',
+        backgroundColor: '#465362',
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 15,
     },
+
+    // back_button: {
+    //     width: Window_Width * 0.30,
+    //     height: Window_Height * 0.05,
+    //     marginBottom: Window_Height * 0.030,
+    //     //backgroundColor: 'pink',
+    //     backgroundColor: '#D65821',
+    //     justifyContent: 'center',
+    //     alignItems: 'center',
+    //     borderRadius: 15,
+    // },
 });
